@@ -52,6 +52,8 @@ app.locals.title = 'Mump - Less Mumbling More Doing';
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/staff-routes'))
 app.use('/', require('./routes/auth-routes'));
+app.use('/', require('./routes/user-routes'));
+
 
 
 module.exports = app;
