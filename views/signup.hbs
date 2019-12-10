@@ -1,7 +1,7 @@
 <!--Nav Bar-->
 
 <nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="/">
     <img src="/images/mump-logo.png" height="30" class="d-inline-block align-top" alt="">
     Less Mumbling, More Doing!
   </a>
@@ -11,14 +11,17 @@
   </button>
 </nav>
 
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<form id="form" action="/signup" method="POST">
+  <label for="username">Username</label><br>
+  <input type="text" name="username" placeholder="Your username">
 
-<a href="/user/dashboard">Go to User Dashboard</a>
-<a href="/user/tickets">Go to User ticket area</a>
-
-
-
+  <label for="password">Password</label><br>
+  <input type="password" name="password" placeholder="********">
+  {{#if errorMessage}}
+  <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}
+  <button type="submit">Create account</button>
+</form>
 
 <!-- Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
