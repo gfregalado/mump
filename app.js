@@ -50,6 +50,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Mump - Less Mumbling More Doing';
 
 app.use('/', require('./routes/index'));
+app.use('/', require('./routes/staff-routes'))
 app.use('/', require('./routes/auth-routes'));
 
 
