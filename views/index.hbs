@@ -40,8 +40,12 @@
 
           <label for="password">Password</label>
           <input type="password" name="password">
+          {{!-- 
+          {{#if errorMessage }}
+          <div class="error-message">{{ errorMessage }}</div>
+          {{/if}} --}}
 
-
+          <button class="btn btn-primary" id="loginbutton">Login</button>
 
         </form>
       </div>
@@ -49,10 +53,7 @@
         <p class="account-message">
           Don't have an account? <a href="/signup">Sign up</a>
         </p>
-        {{#if errorMessage }}
-        <div class="error-message">{{ errorMessage }}</div>
-        {{/if}}
-        <button type="button" class="btn btn-primary"> Login</button>
+
       </div>
     </div>
   </div>
