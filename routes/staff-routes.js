@@ -7,7 +7,6 @@ router.get('/staff-dashboard', (req, res, next) => {
   res.render('staff/staff-dashboard.hbs');
 });
 
-
 //Staff-Ticket View
 
 router.get('/staff-tickets', (req, res, next) => {
