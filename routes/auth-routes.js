@@ -79,7 +79,8 @@ router.post("/login", (req, res, next) => {
       if (bcrypt.compareSync(thePassword, user.password)) {
         // Save the login in the session!
         req.session.currentUser = user;
-        res.redirect("/");
+
+        res.render("index", { userAuthenticated: true })
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"
@@ -91,12 +92,17 @@ router.post("/login", (req, res, next) => {
     });
 });
 
+
+
+//Logout Routes
+
 router.get("/logout", (req, res, next) => {
-  req.session.destroy(err => {
+  req.session.destroy((err) => {
     // cannot access session here
     res.redirect("/");
   });
 });
+
 
 module.exports = router;
 
@@ -185,3 +191,5 @@ module.exports = router;
 //       next(error);
 //     })
 // })
+
+
