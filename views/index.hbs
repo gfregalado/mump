@@ -1,22 +1,52 @@
 <!--Nav Bar-->
 
 <nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="/images/mump-logo.png" height="30" class="d-inline-block align-top" alt="">
+  <a class="navbar-brand" href="/">
+    <img src="/images/mump-logo.png" href="/" height="30" class="d-inline-block align-top" alt="">
     Less Mumbling, More Doing!
   </a>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+
+  <button type="button" class="btn btn-primary" onclick="location.href='/login'">
     Login
   </button>
 </nav>
 
-<a href="/user/dashboard">Go to User Dashboard</a>
-<a href="/user/tickets">Go to User ticket area</a>
+<a href="/signup">Go to Signup</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+{{!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -34,9 +64,14 @@
           <br>
 
           <label for="password">Password</label>
-          <input type="password" name="password">
+          <input type="password" name="password"> --}}
 
 
+{{!-- {{#if errorMessage }}
+          <div class="error-message">{{ errorMessage }}</div>
+          {{!-- {{!-- {{/if}} --}}
+
+{{!-- <button class="btn btn-primary" id="loginbutton">Login</button>
 
         </form>
       </div>
@@ -44,11 +79,8 @@
         <p class="account-message">
           Don't have an account? <a href="/signup">Sign up</a>
         </p>
-        {{#if errorMessage }}
-        <div class="error-message">{{ errorMessage }}</div>
-        {{/if}}
-        <button type="button" class="btn btn-primary"> Login</button>
+
       </div>
     </div>
   </div>
-</div>
+</div> --}}
