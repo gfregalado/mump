@@ -1,0 +1,30 @@
+<!--Nav Bar-->
+
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="/images/mump-logo.png" href="/" height="30" class="d-inline-block align-top" alt="">
+    Less Mumbling, More Doing!
+  </a>
+  
+  <button type="button" class="btn btn-primary" onclick="location.href='/login'">
+    Login
+  </button>
+</nav>
+
+<form id="form" action="/signup" method="POST">
+
+  <label for="username">Username</label><br>
+  <input type="text" name="username" placeholder="Your username">
+
+  <label for="password">Password</label><br>
+  <input type="password" name="password" placeholder="********">
+
+  {{!-- <label for="password">Repeat Password</label><br>
+  <input type="password" name="password2" placeholder="********"> --}}
+
+  {{#if errorMessage}}
+  <div class="error-message"> {{errorMessage}}</div> <br>
+  {{/if}}
+
+  <button type="submit">Create account</button>
+</form>

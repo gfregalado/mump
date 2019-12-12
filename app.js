@@ -45,7 +45,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-    secret: "mump-secret",
+    secret: "mump-project-secret",
     cookie: { maxAge: 60000 },
     store: new mongoStore({
       mongooseConnection: mongoose.connection,
