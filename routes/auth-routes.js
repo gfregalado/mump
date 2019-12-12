@@ -55,7 +55,7 @@ router.post("/signup", (req, res) => {
 
 
 router.post("/login", (req, res, next) => {
-  return "hello im in login route";
+  console.log("hello im in login route")
   const theUsername = req.body.username;
   const thePassword = req.body.password;
 
