@@ -2,16 +2,30 @@
 
 <nav class="navbar fixed-top navbar-light bg-light">
   <a class="navbar-brand" href="/">
-    <img src="/images/mump-logo.png" href="/" height="30" class="d-inline-block align-top" alt="">
-    Less Mumbling, More Doing!
+    <h4>Mump</h4>
   </a>
+  auth: {{userAuthenticated }}
+  {{#if userAuthenticated }}
 
+  <button type="button" class="btn btn-primary" onclick="location.href='/logout'">
+    Logout
+  </button>
+  {{else}}
   <button type="button" class="btn btn-primary" onclick="location.href='/login'">
     Login
   </button>
+
+  {{/if}}
 </nav>
 
-<a href="/signup">Go to Signup</a>
+
+<div class="banner">
+  <div class="signup-headline">
+    <h2>Or <a href="/signup">Signup</a> and start managing your workspace more efficiently today.</h2>
+  </div>
+  <div class="banner-image"></div>
+
+</div>
 
 
 
