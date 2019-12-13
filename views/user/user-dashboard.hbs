@@ -1,1 +1,62 @@
+{{!-- Navbar --}}
+
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <h4>Mump</h4>
+  </a>
+  auth: {{userAuthenticated }}
+  {{#if userAuthenticated }}
+
+  <button type="button" class="btn btn-primary" onclick="location.href='/logout'">
+    Logout
+  </button>
+  {{else}}
+  <button type="button" class="btn btn-primary" onclick="location.href='/login'">
+    Login
+  </button>
+
+  {{/if}}
+</nav>
+
+
 <h1>I am the user dashboard</h1>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Open a new ticket
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Submit a ticket</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/login" method="POST" id="form">
+
+
+          <label for="title"><strong>Title:</strong></label>
+          <input type="text" name="title" required>
+
+
+          <label for="description"><strong>Description:</strong></label>
+          <textarea class="form-control" id="description" rows="3"></textarea>
+          <br>
+
+          <button>upload picture</button>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
