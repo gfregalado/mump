@@ -23,6 +23,7 @@ router.get("/user/dashboard", (req, res, next) => {
   const email = req.session.currentUser.email
   Ticket.find({ email: email })
     .then((tickets) => {
+      console.log(tickets)
       res.render('user/user-dashboard', { userAuthenticated: req.session.currentUser, tickets: tickets });
     })
 });
@@ -35,7 +36,6 @@ router.post('/ticketcreation', (req, res, next) => {
   const title = req.body.title;
   const description = req.body.description;
   const email = req.session.currentUser.email
-  console.log("user", req.session.currentUser);
 
   Ticket.create({
     title, description, email
@@ -48,17 +48,18 @@ router.post('/ticketcreation', (req, res, next) => {
 })
 
 
-//Render Tickets
+// //Render Tickets
 
-router.get('/rendertickets', (req, res, next) => {
-  const email = req.session.currentUser.email
-  Ticket.find({ email: email })
-    .then((tickets) => {
-      res.send(tickets);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-})
+// router.get('/rendertickets', (req, res, next) => {
+//   const email = req.session.currentUser.email
+//   Ticket.find({ email: email })
+//     .then((tickets) => {
+//       console.log(tickets)
+//       res.send(tickets);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// })
 
 module.exports = router;
