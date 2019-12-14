@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    email: { type: String, match: "\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b" },
+    email: { type: String },
     password: { type: String },
     firstName: { type: String },
     lastName: { type: String },
