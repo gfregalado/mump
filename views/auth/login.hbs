@@ -6,24 +6,27 @@
   </a>
 </nav>
 
-<form action="/login" method="POST" id="form">
+<div class="formContainer">
+  <form action="/login" method="POST" id="form" class="form">
 
-  <h2>Login</h2>
+    <h4>Login</h4>
+    <br>
 
-  <label for="email">Email</label>
-  <input type="email" name="email">
+    <label for="email">Email</label>
+    <input type="email" name="email">
 
-  <label for="password">Password</label>
-  <input type="password" name="password">
+    <label for="password">Password</label>
+    <input type="password" name="password">
 
-  {{#if errorMessage }}
-  <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
+    {{#if errorMessage }}
+    <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
 
-  <button>Sign in</button>
+    <button>Sign in</button>
 
-  <p class="account-message">
-    Don't have an account? <a href="/signup">Sign up</a>
-  </p>
+    <p class="account-message">
+      Don't have an account? <a href="/signup">Sign up</a>
+    </p>
 
-</form>
+  </form>
+</div>

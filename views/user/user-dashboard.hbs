@@ -4,7 +4,7 @@
   <a class="navbar-brand" href="/user/dashboard">
     <h4>Mump</h4>
   </a>
-  auth: {{ userAuthenticated.firstName }}
+  Welcome {{ userAuthenticated.firstName }}
   {{#if userAuthenticated }}
   <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
     Logout
@@ -20,6 +20,31 @@
 <div class="container dashboard">
   <h1>You have no open tickets</h1>
 
+  {{!-- TABLE WITH THE TICKETS --}}
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each tickets}}
+      <tr>
+        <th scope="row">{{this.title}}</th>
+        <td>{{this.createdAt}}</td>
+        <td>{{this.status}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ticketDetails">
+            Check ticket
+          </button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
   <!-- Button trigger modal -->
   <div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -27,7 +52,7 @@
     </button>
   </div>
 </div>
-<!-- Modal -->
+<!-- Modal Submit Ticket -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -53,6 +78,27 @@
           <button>upload picture</button>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Check Ticket -->
+<div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="ticketDetailsLabel">Ticket Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
       </div>
       <div class="modal-footer">
 
