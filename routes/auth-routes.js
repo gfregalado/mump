@@ -11,9 +11,14 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res) => {
-  const username = req.body.username;
+  const email = req.body.email;
   const password = req.body.password;
-  if (username === "" || password === "") {
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+
+  console.log(email + password + firstName + lastName)
+
+  if (email === "" || password === "") {
     res.render("auth/signup", {
       errorMessage: "Indicate a username and a password to sign up"
     });
@@ -21,7 +26,7 @@ router.post("/signup", (req, res) => {
   }
 
   User.findOne({
-    username: username
+    email: email
   })
     .then(user => {
       if (user !== null) {
@@ -34,8 +39,10 @@ router.post("/signup", (req, res) => {
       const hashPass = bcrypt.hashSync(password, salt);
 
       User.create({
-        username,
-        password: hashPass
+        email,
+        password: hashPass,
+        firstName,
+        lastName
       })
         .then(() => {
           req.session.currentUser = user;
@@ -57,17 +64,17 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", (req, res, next) => {
-  const theUsername = req.body.username;
+  const theEmail = req.body.email;
   const thePassword = req.body.password;
 
-  if (theUsername === "" || thePassword === "") {
+  if (theEmail === "" || thePassword === "") {
     res.render("auth/login", {
       errorMessage: "Please enter both, username and password to sign up."
     });
     return;
   }
 
-  User.findOne({ username: theUsername })
+  User.findOne({ email: theEmail })
     .then(user => {
       if (!user) {
         res.render("auth/login", {
@@ -80,7 +87,7 @@ router.post("/login", (req, res, next) => {
         // Save the login in the session!
         req.session.currentUser = user;
 
-        res.render("user/user-dashboard", { userAuthenticated: true })
+        res.render("user/user-dashboard", { userAuthenticated: req.session.currentUser })
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"

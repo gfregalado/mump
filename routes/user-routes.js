@@ -5,32 +5,23 @@ const Ticket = require("../models/ticket");
 
 // GET - User ticket area view
 
-router.get('/user/tickets', (req, res, next) => {
+router.use((req, res, next) => {
   if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
     next(); // ==> go to the next route ---
   } else {                          //    |
     res.redirect("/login");         //    |
   }                                 //    |
-}); // ------------------------------------                                
-//     | 
-//     V
+}); // ------------------------------------           
+
+
 router.get("/user/tickets", (req, res, next) => {
   res.render('user/user-ticket-area');
 });
 
-// GET - User dashboard view
 
-router.get('/user/dashboard', (req, res, next) => {
-  if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
-    next(); // ==> go to the next route ---
-  } else {                          //    |
-    res.redirect("/login");         //    |
-  }                                 //    |
-}); // ------------------------------------                                
-//     | 
-//     V
 router.get("/user/dashboard", (req, res, next) => {
-  res.render('user/user-dashboard');
+  console.log("userdashboard", req.session.currentUser);
+  res.render('user/user-dashboard', { userAuthenticated: req.session.currentUser });
 });
 
 
@@ -40,12 +31,16 @@ router.get("/user/dashboard", (req, res, next) => {
 router.post('/ticketcreation', (req, res, next) => {
   const title = req.body.title;
   const description = req.body.description;
+  const email = req.session.currentUser.email
+  console.log("user", req.session.currentUser);
 
   Ticket.create({
-    title, description
+    title, description, email
   }).then(() => {
+    console.log("user2", req.session.currentUser);
 
-    res.render("user/user-dashboard");
+    res.render("user/user-dashboard", { userAuthenticated: req.session.currentUser });
+    // console.log("USER INFO:" + theUsername)
   })
     .catch(error => {
       console.log(error);

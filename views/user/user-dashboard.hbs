@@ -4,7 +4,7 @@
   <a class="navbar-brand" href="/user/dashboard">
     <h4>Mump</h4>
   </a>
-  auth: {{userAuthenticated }}
+  auth: {{ userAuthenticated.firstName }}
   {{#if userAuthenticated }}
   <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
     Logout
