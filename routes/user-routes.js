@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const Ticket = require("../models/ticket");
+
 
 // GET - User ticket area view
 

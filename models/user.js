@@ -3,9 +3,12 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    username: String,
-    password: String,
-    staff: Boolean
+    username: { type: String },
+    password: { type: String },
+    super: { type: Boolean, default: false },
+    Role: { type: String },
+    Avatar: { type: String },
+
   },
   {
     timestamps: true

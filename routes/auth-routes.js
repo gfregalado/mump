@@ -39,7 +39,7 @@ router.post("/signup", (req, res) => {
       })
         .then(() => {
           req.session.currentUser = user;
-          res.redirect("/");
+          res.render("index", { userAuthenticated: req.session.currentUser });
         })
         .catch(error => {
           console.log(error);
@@ -80,7 +80,7 @@ router.post("/login", (req, res, next) => {
         // Save the login in the session!
         req.session.currentUser = user;
 
-        res.render("index", { userAuthenticated: true })
+        res.render("user/user-dashboard", { userAuthenticated: true })
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"
