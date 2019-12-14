@@ -1,13 +1,12 @@
 {{!-- Navbar --}}
 
 <nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" href="/user/dashboard">
     <h4>Mump</h4>
   </a>
   auth: {{userAuthenticated }}
   {{#if userAuthenticated }}
-
-  <button type="button" class="btn btn-primary" onclick="location.href='/logout'">
+  <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
     Logout
   </button>
   {{else}}
@@ -18,14 +17,16 @@
   {{/if}}
 </nav>
 
+<div class="container dashboard">
+  <h1>You have no open tickets</h1>
 
-<h1>I am the user dashboard</h1>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Open a new ticket
-</button>
-
+  <!-- Button trigger modal -->
+  <div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Open a new ticket
+    </button>
+  </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -54,7 +55,6 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>

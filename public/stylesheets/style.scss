@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:#f8f9fa
 }
 
 a {
@@ -92,3 +93,26 @@ a {
   background-position: center;
   width: 60%;
 }
+
+.btn-primary{
+  background: #43a3e6;
+  border: 1px solid #43a3e6;
+}
+
+.dashboard{
+  margin-top: 50px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup {
+  padding: 50px;
+  background-color: white;
+  border-radius: 30px;
+}
+
+
+
