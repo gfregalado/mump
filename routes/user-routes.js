@@ -35,6 +35,21 @@ router.get("/user/dashboard", (req, res, next) => {
 
 
 
+//Ticket Creation
 
+router.post('/ticketcreation', (req, res, next) => {
+  const title = req.body.title;
+  const description = req.body.description;
+
+  Ticket.create({
+    title, description
+  }).then(() => {
+
+    res.render("user/user-dashboard");
+  })
+    .catch(error => {
+      console.log(error);
+    });
+})
 
 module.exports = router;

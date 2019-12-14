@@ -39,7 +39,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/login" method="POST" id="form">
+        <form action="/ticketcreation" method="POST" id="form">
 
 
           <label for="title"><strong>Title:</strong></label>
@@ -47,15 +47,15 @@
 
 
           <label for="description"><strong>Description:</strong></label>
-          <textarea class="form-control" id="description" rows="3"></textarea>
+          <textarea type="text" class="form-control" name="description" rows="3"></textarea>
           <br>
 
           <button>upload picture</button>
-
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Submit</button>
+
       </div>
     </div>
   </div>
