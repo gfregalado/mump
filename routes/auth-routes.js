@@ -18,7 +18,7 @@ router.post("/signup", (req, res) => {
 
   if (email === "" || password === "") {
     res.render("auth/signup", {
-      errorMessage: "Indicate a username and a password to sign up"
+      errorMessage: "Indicate a valid email and a password to sign up"
     });
     return;
   }
@@ -29,7 +29,7 @@ router.post("/signup", (req, res) => {
     .then(user => {
       if (user !== null) {
         res.render("auth/signup", {
-          errorMessage: "The username already exists!"
+          errorMessage: "Oops, this email already exists!"
         });
         return;
       }
@@ -67,7 +67,7 @@ router.post("/login", (req, res, next) => {
 
   if (theEmail === "" || thePassword === "") {
     res.render("auth/login", {
-      errorMessage: "Please enter both, username and password to sign up."
+      errorMessage: "Please enter a valid username and password to sign up."
     });
     return;
   }
@@ -85,7 +85,7 @@ router.post("/login", (req, res, next) => {
         // Save the login in the session!
         req.session.currentUser = user;
 
-        res.redirect("/user/dashboard")
+        res.redirect("/user/dashboard");
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"
@@ -97,17 +97,14 @@ router.post("/login", (req, res, next) => {
     });
 });
 
-
-
 //Logout Routes
 
 router.get("/logout", (req, res, next) => {
-  req.session.destroy((err) => {
+  req.session.destroy(err => {
     // cannot access session here
     res.redirect("/");
   });
 });
-
 
 module.exports = router;
 
@@ -196,5 +193,3 @@ module.exports = router;
 //       next(error);
 //     })
 // })
-
-

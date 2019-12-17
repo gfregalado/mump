@@ -1,7 +1,7 @@
 {{!-- Navbar --}}
 
 <nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="/user/dashboard">
+  <a class="navbar-brand" href="/">
     <h4>Mump</h4>
   </a>
   Welcome {{ userAuthenticated.firstName }}
@@ -19,23 +19,53 @@
 
 <div class="container dashboard">
   <h1>You have no open tickets</h1>
+{{!-- 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table> --}}
 
   {{!-- TABLE WITH THE TICKETS --}}
 
   <table class="table table-hover">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Date</th>
-        <th scope="col">Status</th>
-        <th scope="col">Details</th>
+        <th scope="col">Title:</th>
+        <th scope="col">Date created:</th>
+        <th scope="col">Status:</th>
+        <th scope="col">Details:</th>
       </tr>
     </thead>
     <tbody>
       {{#each tickets}}
       <tr>
         <th scope="row">{{this.title}}</th>
-        <td>{{this.createdAt}}</td>
+        <td>{{this.date}}</td>
         <td>{{this.status}}</td>
         <td><button type="button" onclick="window.location.href='/user/ticket?ticket_id={{this._id}}'"
             class="btn btn-primary btn-sm">
@@ -76,7 +106,7 @@
           <textarea type="text" class="form-control" name="description" rows="3"></textarea>
           <br>
 
-          <button>upload picture</button>
+          <button>Upload picture</button>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>

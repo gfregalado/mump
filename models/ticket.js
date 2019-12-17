@@ -13,7 +13,8 @@ const ticketSchema = new Schema(
         user: String,
         comment: String,
       }
-    ]
+    ],
+    date: { type: Date, default: Date.now }
   },
   {
     timestamps: true
