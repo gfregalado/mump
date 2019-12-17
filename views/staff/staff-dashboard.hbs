@@ -4,7 +4,7 @@
   <a class="navbar-brand" href="/">
     <h4>Mump</h4>
   </a>
-  Welcome {{ userAuthenticated.firstName }}
+  Welcome to the Staff Dashboard {{ userAuthenticated.firstName }}
   {{#if userAuthenticated }}
   <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
     Logout

@@ -81,12 +81,18 @@ router.post("/login", (req, res, next) => {
         return;
       }
 
-      if (bcrypt.compareSync(thePassword, user.password)) {
+      if (bcrypt.compareSync(thePassword, user.password) && user.super === true) {
+        // Save the login in the session!
+        req.session.currentUser = user;
+
+        res.redirect("/staff/dashboard");
+      } if (bcrypt.compareSync(thePassword, user.password) && user.super === false) {
         // Save the login in the session!
         req.session.currentUser = user;
 
         res.redirect("/user/dashboard");
-      } else {
+      }
+      else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"
         });
