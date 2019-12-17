@@ -39,8 +39,6 @@ router.get("/user/ticket", (req, res, next) => {
 });
 
 
-
-
 //Ticket Creation
 
 router.post('/ticketcreation', (req, res, next) => {
