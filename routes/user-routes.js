@@ -23,10 +23,21 @@ router.get("/user/dashboard", (req, res, next) => {
   const email = req.session.currentUser.email
   Ticket.find({ email: email })
     .then((tickets) => {
-      console.log(tickets)
       res.render('user/user-dashboard', { userAuthenticated: req.session.currentUser, tickets: tickets });
     })
 });
+
+router.get("/user/ticket", (req, res, next) => {
+  const ticketID = req.query.ticket_id
+  Ticket.find({ _id: ticketID })
+    .then((ticket) => {
+      console.log(ticket)
+      res.render('user/ticket', { userAuthenticated: req.session.currentUser, ticket: ticket });
+    }).catch(err => {
+      console.log(err)
+    })
+});
+
 
 
 
