@@ -4,7 +4,7 @@
   <a class="navbar-brand" href="/">
     <h4>Mump</h4>
   </a>
-  Welcome to the User Dashboard {{ userAuthenticated.firstName }}
+  Welcome to the Staff Dashboard {{ userAuthenticated.firstName }}
   {{#if userAuthenticated }}
   <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
     Logout
@@ -19,7 +19,6 @@
 
 <div class="container dashboard">
   <h1>You have no open tickets</h1>
-
 
   {{!-- TABLE WITH THE TICKETS --}}
 
@@ -38,8 +37,8 @@
         <th scope="row">{{this.title}}</th>
         <td>{{this.date}}</td>
         <td>{{this.status}}</td>
-        <td><button type="button" onclick="window.location.href='/user/ticket?ticket_id={{this._id}}'"
-            class="btn btn-primary btn-sm">
+        <td><button type="button" onclick="myFunction()" class="btn btn-primary btn-sm" data-toggle="modal"
+            data-target="#ticketDetails">
             Check ticket
           </button></td>
       </tr>
@@ -80,6 +79,27 @@
           <button>Upload picture</button>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Check Ticket -->
+<div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="ticketDetailsLabel">Ticket Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{tickets.[0].description}}
       </div>
       <div class="modal-footer">
 

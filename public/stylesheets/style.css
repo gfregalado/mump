@@ -56,9 +56,6 @@ a {
   padding: 15px;
   width: 100%; }
 
-.cursor {
-  cursor: pointer; }
-
 .banner {
   margin-top: 70px;
   width: 100%;
@@ -105,6 +102,45 @@ textarea {
 
 .formContainer {
   height: 630px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.container-dashboard {
+  display: flex;
+  justify-content: space-around; }
+
+.left-navigator {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 700px;
+  border: solid 1px red; }
+
+.user {
+  height: 200px; }
+
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: flex-start;
+  align-items: center; }
+
+.nav-buttons button {
+  margin: 10px; }
+
+.main-dashboard {
+  width: 60%;
+  height: 700px;
+  border: solid 1px greenyellow; }
+
+.ticket-overview {
+  width: 20%;
+  height: 700px;
+  border: solid 1px blue; }
+
+.logout-button {
   display: flex;
   justify-content: center;
   align-items: center; }

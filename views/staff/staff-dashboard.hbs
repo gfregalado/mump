@@ -1,109 +1,56 @@
-{{!-- Navbar --}}
+<div class="container-dashboard">
 
-<nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="/">
-    <h4>Mump</h4>
-  </a>
-  Welcome {{ userAuthenticated.firstName }}
-  {{#if userAuthenticated }}
-  <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
-    Logout
-  </button>
-  {{else}}
-  <button type="button" class="btn btn-primary" onclick="location.href='/login'">
-    Login
-  </button>
-
-  {{/if}}
-</nav>
-
-<div class="container dashboard">
-  <h1>You have no open tickets</h1>
-
-  {{!-- TABLE WITH THE TICKETS --}}
-
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Title:</th>
-        <th scope="col">Date created:</th>
-        <th scope="col">Status:</th>
-        <th scope="col">Details:</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each tickets}}
-      <tr>
-        <th scope="row">{{this.title}}</th>
-        <td>{{this.date}}</td>
-        <td>{{this.status}}</td>
-        <td><button type="button" onclick="myFunction()" class="btn btn-primary btn-sm" data-toggle="modal"
-            data-target="#ticketDetails">
-            Check ticket
-          </button></td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
-
-  <!-- Button trigger modal -->
-  <div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Open a new ticket
-    </button>
-  </div>
-</div>
-<!-- Modal Submit Ticket -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Submit a ticket</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="/ticketcreation" method="POST" id="form">
-
-
-          <label for="title"><strong>Title:</strong></label>
-          <input type="text" name="title" required>
-
-
-          <label for="description"><strong>Description:</strong></label>
-          <textarea type="text" class="form-control" name="description" rows="3"></textarea>
-          <br>
-
-          <button>Upload picture</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-
-      </div>
+  <!-- 1st column on the left that contains AVATAR , MENU and LOGOUT button  -->
+  <section class="left-navigator">
+    <div class="user">
+      <img src="" alt="" class="user-avatar">
+      <h4>UserNAME</h4>
     </div>
-  </div>
-</div>
 
-<!-- Modal Check Ticket -->
-<div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="ticketDetailsLabel">Ticket Details</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        {{tickets.[0].description}}
-      </div>
-      <div class="modal-footer">
-
-      </div>
+    <div class="nav-buttons">
+      <button class="btn btn-primary">Dashboard</button>
+      <button class="btn btn-primary">Current Tickets</button>
+      <button class="btn btn-primary">Closed Tickets</button>
+      <button class="btn btn-primary">Clients</button>
     </div>
-  </div>
+
+    <div class="logout-button">
+      <button onclick="location.href='/login'" class="btn btn-primary">Logout</button>
+    </div>
+  </section>
+
+  <!-- 3rd column - right - Contains div with RECENTS , CREATED TICKETS , ADD A TICKET BUTTON-->
+
+
+  <section class="main-dashboard">
+
+    <div>
+      <h1>Dashboard</h1>
+    </div>
+
+    <div class="stats">
+
+    </div>
+
+    <div class="calendar">
+
+    </div>
+
+  </section>
+
+
+  <!-- 3rd column - right - Contains div with RECENTS , CREATED TICKETS , ADD A TICKET BUTTON-->
+
+  <section class="ticket-overview">
+    <div class="ticket-recents">
+      <h4>Recent Tickets</h4>
+    </div>
+    <div class="created-ticket-area">
+
+    </div>
+
+    <div class="ticket-open">
+      <button onclick="location.href='/ticketcreation'" class="btn btn-primary">Open Ticket</button>
+    </div>
+  </section>
 </div>

@@ -7,11 +7,13 @@ const ticketSchema = new Schema(
     description: { type: String },
     email: { type: String },
     image: { type: String },
-    status: {
-      type: String,
-      enum: ["Open", "In Progress", "Closed"],
-      default: "Open"
-    },
+    status: { type: String, enum: ["Open", "In Progress", "Closed"], default: "Open" },
+    comments: [
+      {
+        user: String,
+        comment: String,
+      }
+    ],
     date: { type: Date, default: Date.now }
   },
   {
