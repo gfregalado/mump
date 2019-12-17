@@ -10,27 +10,33 @@
   </button>
 </nav>
 
+<div class="formContainer">
 
-<form id="form" action="/signup" method="POST" class="signup">
 
-  <label for="email">Email</label><br>
-  <input type="email" name="email" placeholder="Your Email">
+  <form id="form" action="/signup" method="POST" class="form">
 
-  <label for="firstName">First Name</label><br>
-  <input type="text" name="firstName" placeholder="John">
+    <h4>Signup</h4>
+    <br>
 
-  <label for="lastName">First Name</label><br>
-  <input type="text" name="lastName" placeholder="Snow">
+    <label for="email">Email</label><br>
+    <input type="email" name="email" placeholder="Your Email">
 
-  <label for="password">Password</label><br>
-  <input type="password" name="password" placeholder="********">
+    <label for="firstName">First Name</label><br>
+    <input type="text" name="firstName" placeholder="John">
 
-  {{!-- <label for="password">Repeat Password</label><br>
+    <label for="lastName">First Name</label><br>
+    <input type="text" name="lastName" placeholder="Snow">
+
+    <label for="password">Password</label><br>
+    <input type="password" name="password" placeholder="********">
+
+    {{!-- <label for="password">Repeat Password</label><br>
   <input type="password" name="password2" placeholder="********"> --}}
 
-  {{#if errorMessage}}
-  <div class="error-message"> {{errorMessage}}</div> <br>
-  {{/if}}
+    {{#if errorMessage}}
+    <div class="error-message"> {{errorMessage}}</div> <br>
+    {{/if}}
 
-  <button type="submit">Create account</button>
-</form>
+    <button type="submit">Create account</button>
+  </form>
+</div>

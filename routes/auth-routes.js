@@ -16,8 +16,6 @@ router.post("/signup", (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
 
-  console.log(email + password + firstName + lastName)
-
   if (email === "" || password === "") {
     res.render("auth/signup", {
       errorMessage: "Indicate a valid email and a password to sign up"
@@ -87,7 +85,7 @@ router.post("/login", (req, res, next) => {
         // Save the login in the session!
         req.session.currentUser = user;
 
-        res.render("user/user-dashboard", { userAuthenticated: req.session.currentUser })
+        res.redirect("/user/dashboard")
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"
