@@ -1,4 +1,4 @@
 function myFunction(ticketID) {
-  let test = ticketID
-  console.log("test")
+  let test = ticketID;
+  console.log("test");
 }

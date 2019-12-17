@@ -55,17 +55,17 @@
   <table class="table table-hover">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Date</th>
-        <th scope="col">Status</th>
-        <th scope="col">Details</th>
+        <th scope="col">Title:</th>
+        <th scope="col">Date created:</th>
+        <th scope="col">Status:</th>
+        <th scope="col">Details:</th>
       </tr>
     </thead>
     <tbody>
       {{#each tickets}}
       <tr>
         <th scope="row">{{this.title}}</th>
-        <td>{{this.createdAt}}</td>
+        <td>{{this.date}}</td>
         <td>{{this.status}}</td>
         <td><button type="button" onclick="myFunction()" class="btn btn-primary btn-sm" data-toggle="modal"
             data-target="#ticketDetails">
