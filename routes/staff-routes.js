@@ -29,7 +29,7 @@ router.get("/staff/dashboard", (req, res, next) => {
 //Staff-Ticket View
 
 router.get("/staff-tickets", (req, res, next) => {
-  res.render("staff/staff-ticket-area");
+  res.render("staff/staff-current-tickets");
 });
 
 // Staff ticket creation
