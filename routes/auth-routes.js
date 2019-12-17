@@ -20,7 +20,7 @@ router.post("/signup", (req, res) => {
 
   if (email === "" || password === "") {
     res.render("auth/signup", {
-      errorMessage: "Indicate a username and a password to sign up"
+      errorMessage: "Indicate a valid email and a password to sign up"
     });
     return;
   }
@@ -31,7 +31,7 @@ router.post("/signup", (req, res) => {
     .then(user => {
       if (user !== null) {
         res.render("auth/signup", {
-          errorMessage: "The username already exists!"
+          errorMessage: "Oops, this email already exists!"
         });
         return;
       }
