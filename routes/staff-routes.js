@@ -61,7 +61,7 @@ router.post("/ticketcreation", (req, res, next) => {
     .then(() => {
       // console.log("user2", req.session.currentUser);
 
-      res.render("staff/user-dashboard", {
+      res.render("staff/staff-dashboard", {
         userAuthenticated: req.session.currentUser
       });
       // console.log("USER INFO:" + theUsername)
