@@ -4,8 +4,12 @@
   <section class="left-navigator">
     <div class="user">
       <img src="/images/default-avatar.png" alt="" class="user-avatar">
+
       <!-- should fetch the USER each and close it  -->
-      <h4>Hello something</h4>
+
+      <h4>Hello there {{userAuthenticated.firstName}} </h4>
+
+
     </div>
 
     <div class="nav-buttons">
@@ -47,7 +51,9 @@
       <h4>Recent Tickets</h4>
     </div>
     <div class="created-ticket-area">
-
+      {{#each tickets}}
+      <div> {{this.ticket}} </div>
+      {{/each}}
     </div>
 
     <div class="ticket-open">

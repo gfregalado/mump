@@ -113,6 +113,8 @@ textarea {
 .left-navigator {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   width: 20%;
   height: 700px;
   border: solid 1px red; }
@@ -121,8 +123,9 @@ textarea {
   height: 200px; }
 
 .user-avatar {
-  width: 50px;
-  height: 50px; }
+  width: auto;
+  height: 5em;
+  align-content: center; }
 
 .nav-buttons {
   display: flex;
@@ -137,12 +140,20 @@ textarea {
 .main-dashboard {
   width: 60%;
   height: 700px;
-  border: solid 1px greenyellow; }
+  border: solid 1px greenyellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
 
 .ticket-overview {
   width: 20%;
   height: 700px;
-  border: solid 1px blue; }
+  border: solid 1px blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
 
 .logout-button {
   display: flex;
