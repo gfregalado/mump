@@ -26,6 +26,17 @@ router.get("/staff/dashboard", (req, res, next) => {
   });
 });
 
+router.get("/staff/dashboard", (req, res, next) => {
+  const email = req.session.currentUser.email;
+  Ticket.find({ email: email }).then(tickets => {
+    console.log(tickets);
+    res.render("staff/staff-dashboard", {
+      userAuthenticated: req.session.currentUser,
+      tickets: tickets
+    });
+  });
+});
+
 //Staff-Ticket View
 
 router.get("/staff-tickets", (req, res, next) => {

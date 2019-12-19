@@ -1,7 +1,11 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  padding-left: 0px;
+  font: 14px "Roboto", Helvetica, Arial, sans-serif;
   background-color: #f8f9fa; }
+
+.container-fluid {
+  padding: 0px; }
 
 a {
   color: #00B7FF; }
@@ -113,36 +117,80 @@ textarea {
 .left-navigator {
   display: flex;
   flex-direction: column;
-  width: 20%;
-  height: 700px;
-  border: solid 1px red; }
+  width: 17%;
+  height: 100vh;
+  border-right: solid 1px #E5E5E5;
+  background-color: white; }
 
 .user {
-  height: 200px; }
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  border-bottom: solid 1px #E5E5E5; }
+
+.user img {
+  border: solid 1px black;
+  border-radius: 100px; }
 
 .nav-buttons {
   display: flex;
   flex-direction: column;
   height: 500px;
+  justify-content: flex-start; }
+
+.nav-buttons button {
+  margin: 10px;
+  color: black; }
+
+.nav-buttons button {
+  margin: 10px;
+  color: black;
+  border: solid 1px white;
+  display: flex;
   justify-content: flex-start;
   align-items: center; }
 
-.nav-buttons button {
-  margin: 10px; }
+.nav-buttons button img {
+  width: 15px;
+  height: 15px;
+  margin-right: 30px; }
+
+.btn-outline-secondary:hover {
+  background-color: #D2DDD1;
+  border: solid 1px #D2DDD1;
+  color: #1D4D4F; }
 
 .main-dashboard {
-  width: 60%;
-  height: 700px;
-  border: solid 1px greenyellow; }
+  width: 63%;
+  height: 100vh; }
 
 .ticket-overview {
   width: 20%;
-  height: 700px;
+  height: 100vh;
   border: solid 1px blue; }
 
 .logout-button {
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.logout-button button {
+  width: 126px;
+  height: 40px;
+  border-radius: 30px;
+  border: #1D4D4F;
+  background-color: #1D4D4F;
+  box-shadow: 0px 13px 28px -13px rgba(0, 0, 0, 0.75); }
+
+.btn-outline-secondary {
+  border: solid 1.5px #1D4D4F; }
+
+.btn-outline-secondary:not(:disabled):not(.disabled).active {
+  color: #1D4D4F;
+  background-color: #D2DDD1;
+  border: #D2DDD1; }
 
 /*# sourceMappingURL=style.css.map */
