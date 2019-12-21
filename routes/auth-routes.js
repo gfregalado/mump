@@ -47,7 +47,7 @@ router.post("/signup", (req, res) => {
           res.render("index", { userAuthenticated: req.session.currentUser });
         })
         .catch(error => {
-          console.log(error);
+          res.render('index');
         });
     })
     .catch(error => {

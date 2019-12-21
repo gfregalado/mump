@@ -124,7 +124,7 @@ textarea {
   flex-direction: column;
   width: 17%;
   height: 100vh;
-  border-right: solid 1px #e5e5e5;
+  border: solid 2px #1d4d4f;
   background-color: white; }
 
 .user {
@@ -191,34 +191,42 @@ textarea {
 .center-column {
   width: 63%;
   height: 100vh;
-  border: solid 1px greenyellow;
+  border: solid 1px #1d4d4f;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center; }
 
 .dashboard-name {
   margin-top: 20px; }
 
-.stats {
+.stats-grid {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly; }
 
-#box1 {
-  width: 100px;
-  height: 100px;
-  border: 5px solid green; }
+.stats-row1 {
+  display: flex;
+  flex-direction: row;
+  margin: 10px; }
 
-#box2 {
-  width: 100px;
-  height: 100px;
-  border: 5px solid red; }
+.stats-row2 {
+  display: flex;
+  flex-direction: row;
+  margin: 10px; }
 
-#box3 {
-  width: 100px;
-  height: 100px;
-  border: 5px solid blue; }
+.box {
+  width: 204px;
+  height: 183px;
+  border: 1px solid grey;
+  margin: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px; }
+
+.box > img {
+  width: 30px;
+  height: 30px; }
 
 .table {
   text-align: center; }
@@ -235,7 +243,7 @@ textarea {
 .ticket-overview {
   width: 20%;
   height: 100vh;
-  border: solid 1px blue;
+  border: solid 2px #1d4d4f;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -276,5 +284,9 @@ textarea {
   color: #1d4d4f;
   background-color: #d2ddd1;
   border: #d2ddd1; }
+
+.scrollit {
+  overflow: scroll;
+  height: 50px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -9,3 +9,6 @@ npm-debug.log
 
 # Ignore also the .jshintrc so that it doesn't go into the commit
 .jshintrc
+
+# ignore text file with early development
+stuffnotused

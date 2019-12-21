@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/ticket");
+const uploadCloud = require("../config/cloudinary.js");
+
 
 // this router triggers LOGIN on any attempt to enter the URL  without having the session - LOGIN ROUTE For BOTH
 router.use((req, res, next) => {

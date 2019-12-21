@@ -14,9 +14,9 @@
         Dashboard</button>
       <button class="btn btn-outline-secondary" onclick="location.href='/staff/staff-tickets'"> <img class="test"
           src="/images/icons/ticket-grey.png" alt="ticket">Current Tickets</button>
-      <button class="btn btn-outline-secondary"><img class="test" src="/images/icons/past-grey.png"
-          alt="past-tickets">Closed Tickets</button>
-      <button class="btn btn-outline-secondary" onclick="location.href='/staff/users"><img class="test"
+      <button class="btn btn-outline-secondary" onclick="location.href='/staff/closed-tickets'"><img class="test"
+          src="/images/icons/past-grey.png" alt="past-tickets">Closed Tickets</button>
+      <button class="btn btn-outline-secondary" onclick="location.href='/staff/users'"><img class="test"
           src="/images/icons/contacts-grey.png" alt="contacts">Clients</button>
     </div>
 
@@ -33,33 +33,45 @@
       <h1>Dashboard</h1>
     </div>
 
-    <div class="stats">
+    <div class="stats-grid">
 
-      <div id="box1"> </div>
-      <div id="box2"> </div>
-      <div id="box3"> </div>
+      <div class="stats-row1">
 
-    </div>
+        <div class="box">
+          <img src="/images/icons/contacts-grey.png">
+          Total Clients
+        </div>
+        <div class="box">
+          <img src="/images/icons/contacts-grey.png"> Open Tickets </div>
+        <div class="box">
+          <img src="/images/icons/contacts-grey.png"> Closed Tickets </div>
 
-    <div class="calendar">
-      fasfa
-    </div>
+      </div>
+
+      <div class="stats-row2">
+        <div class="box">
+          <img src="/images/icons/contacts-grey.png"> Time to Close</div>
+        <div class="box">
+          <img src="/images/icons/contacts-grey.png"> New Clients Today </div>
+        <div class="box">
+          <img src="/images/icons/contacts-grey.png"> Number of Messages</div>
+
+      </div>
+
 
   </section>
 
-  <!-- 3rd column - right - Contains div with RECENTS , CREATED TICKETS , ADD A TICKET BUTTON-->
+  <!-- 3rd column - right - Contains div with RECENTS , CREATED TICKETS -->
 
   <section class="ticket-overview">
 
     <div class="ticket-recents">
-      <h4>Recently Open Tickets</h4>
+      <h3> Open Tickets</h3>
     </div>
-    <div class="created-ticket-area">
+
+    <div class="created-ticket-area" class="scrollit">
       <table class="table table-hover">
-        <thead class="thead-dark">
-          <tr>
-          </tr>
-        </thead>
+
         <tbody>
           {{#each tickets}}
           <tr>

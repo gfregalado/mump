@@ -1,55 +1,43 @@
 const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/ticket");
-const User = require("../models/user")
+const User = require("../models/user");
+const uploadCloud = require("../config/cloudinary.js");
 
-// // this router triggers LOGIN on any attempt to enter the URL  without having the session - LOGIN ROUTE For BOTH
-// router.use((req, res, next) => {
-//   if (req.session.currentUser) {
-//     // <== if there's user in the session (user is logged in)
-//     next(); // ==> go to the next route ---
-//   } else {
-//     //    |
-//     res.redirect("/login"); //    |
-//   } //    |
-// }); // ------------------------------------
 
-//Staff-dashboard View
+//Staff-Dashboard View
 
 router.get("/staff/dashboard", (req, res, next) => {
   const email = req.session.currentUser.email;
-  Ticket.find({ email: email }).then(tickets => {
-    console.log(tickets);
-    res.render("staff/staff-dashboard", {
-      userAuthenticated: req.session.currentUser,
-      tickets: tickets
+  Ticket.find({ email: email })
+    .sort({ date: -1 })
+    .then(tickets => {
+      console.log(tickets);
+      res.render("staff/staff-dashboard", {
+        userAuthenticated: req.session.currentUser,
+        tickets: tickets
+        // // }.catch(error => {
+        // //   res.redirect("index");
+        // //   console.log(error);
+        // })
+      });
     });
-  });
-});
-
-router.get("/staff/dashboard", (req, res, next) => {
-  const email = req.session.currentUser.email;
-  Ticket.find({ email: email }).then(tickets => {
-    console.log(tickets);
-    res.render("staff/staff-dashboard", {
-      userAuthenticated: req.session.currentUser,
-      tickets: tickets
-    });
-  });
 });
 
 //Staff-Ticket View
 
 router.get("/staff/staff-tickets", (req, res, next) => {
-  Ticket.find().sort({ date: -1 }).then(tickets => {
-    res.render("staff/staff-current-tickets", {
-      userAuthenticated: req.session.currentUser,
-      tickets: tickets
+  Ticket.find({ status: "Open" })
+    .sort({ date: -1 })
+    .then(tickets => {
+      res.render("staff/staff-current-tickets", {
+        userAuthenticated: req.session.currentUser,
+        tickets: tickets
+      });
     });
-  });
 });
 
-// Staff ticket creation
+// Staff ticket Creation Modal
 
 router.post("/ticketcreation", (req, res, next) => {
   const title = req.body.title;
@@ -83,14 +71,28 @@ router.post("/ticketcreation", (req, res, next) => {
 
 module.exports = router;
 
-
 // Staff Users View
 
 router.get("/staff/users", (req, res, next) => {
-  User.find().sort({ firstName: -1 }).then(user => {
-    res.render("staff/staff-users", {
-      userAuthenticated: req.session.currentUser,
-      user: user
+  User.find({ super: "false" })
+    .sort({ firstName: -1 })
+    .then(user => {
+      res.render("staff/staff-users", {
+        userAuthenticated: req.session.currentUser,
+        user: user
+      });
     });
-  });
+});
+
+// Staff Closed Tickets view
+
+router.get("/staff/closed-tickets", (req, res, next) => {
+  Ticket.find({ status: "Closed" })
+    .sort({ createdAt: -1 })
+    .then(tickets => {
+      res.render("staff/staff-closed-tickets", {
+        userAuthenticated: req.session.currentUser,
+        tickets: tickets
+      });
+    });
 });
