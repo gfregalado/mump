@@ -9,11 +9,11 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
+
 // This is also required for the LOGIN/SIGNUP stuff !!!! --------
 
 const session = require("express-session");
 const mongoStore = require("connect-mongo")(session);
-
 
 // -------------------------------------------
 
@@ -46,7 +46,7 @@ app.use(cookieParser());
 app.use(
   session({
     secret: "mump-project-secret",
-    cookie: { maxAge: 1200000 },
+    cookie: { maxAge: 1800000 },
     store: new mongoStore({
       mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60 //1 day

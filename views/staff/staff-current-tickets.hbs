@@ -1,65 +1,83 @@
-{{!-- Navbar --}}
+<div class="container-dashboard">
 
-<nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="/">
-    <h4>Mump</h4>
-  </a>
-  Welcome to the Staff Dashboard {{ userAuthenticated.firstName }}
-  {{#if userAuthenticated }}
-  <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
-    Logout
-  </button>
-  {{else}}
-  <button type="button" class="btn btn-primary" onclick="location.href='/login'">
-    Login
-  </button>
+  <!-- 1st column on the left that contains AVATAR , MENU and LOGOUT button  -->
 
-  {{/if}}
-</nav>
+  <section class="left-navigator">
 
-<div class="container dashboard">
-  <h1>You have no open tickets</h1>
+    <div class="user">
+      <img src="/images/avatar2.png" alt="" class="user-avatar" width="100px" height="100px">
+      <h5>{{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }}</h5>
+    </div>
 
-  {{!-- TABLE WITH THE TICKETS --}}
+    <div class="nav-buttons">
+      <button class="btn btn-outline-secondary" onclick="location.href='/staff/dashboard'"> <img class="test"
+          src="/images/icons/dashboard-grey.png" alt="dashboard">
+        Dashboard</button>
+      <button class="btn btn-outline-secondary active" onclick="location.href='/staff/staff-tickets'"> <img class="test"
+          src="/images/icons/ticket-green.png" alt="ticket">Current Tickets</button>
+      <button class="btn btn-outline-secondary"><img class="test" src="/images/icons/past-grey.png"
+          alt="past-tickets">Closed Tickets</button>
+      <button class="btn btn-outline-secondary" onclick="location.href='/staff/users'"><img class="test"
+          src="/images/icons/contacts-grey.png" alt="contacts">Clients</button>
+    </div>
 
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Title:</th>
-        <th scope="col">Date created:</th>
-        <th scope="col">Status:</th>
-        <th scope="col">Details:</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each tickets}}
-      <tr>
-        <th scope="row">{{this.title}}</th>
-        <td>{{this.date}}</td>
-        <td>{{this.status}}</td>
-        <td><button type="button" onclick="myFunction()" class="btn btn-primary btn-sm" data-toggle="modal"
-            data-target="#ticketDetails">
-            Check ticket
-          </button></td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
+    <div class="logout-button">
+      <button onclick="location.href='/logout'" class="btn btn-primary">Logout</button>
+    </div>
 
-  <!-- Button trigger modal -->
-  <div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Open a new ticket
-    </button>
-  </div>
+  </section>
+
+
+  <!-- 2nd column - center - Contains div with DASHBOARDNAME , STATS , CALENDAR -->
+
+  <section class="current-ticket-dashboard">
+
+    <div class="container ticket-container">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+      </div>
+      <div class="scroll-table">
+        <table class="table table-hover" data-spy="scroll">
+          <thead>
+            <tr>
+              <th scope="col">Title:</th>
+              <th scope="col">Date created:</th>
+              <th scope="col">Status:</th>
+              <th scope="col">Details:</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each tickets}}
+            <tr>
+              <th scope="row">{{this.title}}</th>
+              <td>{{this.createdAt}}</td>
+              <td>{{this.status}}</td>
+              <td><button type="button" onclick="myFunction()" class="btn btn-primary btn-sm" data-toggle="modal"
+                  data-target="#ticketDetails">
+                  Check ticket
+                </button></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="ticket-creation-button">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#createTicket">Create Ticket</button>
+      </div>
+    </div>
+
+
+
+  </section>
 </div>
+
 <!-- Modal Submit Ticket -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="createTicketLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Submit a ticket</h5>
+        <h5 class="modal-title" id="createTicketLabel">Submit a ticket</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -79,27 +97,6 @@
           <button>Upload picture</button>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-      </div>
-      <div class="modal-footer">
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Check Ticket -->
-<div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="ticketDetailsLabel">Ticket Details</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        {{tickets.[0].description}}
       </div>
       <div class="modal-footer">
 

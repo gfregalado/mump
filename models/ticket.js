@@ -6,6 +6,8 @@ const ticketSchema = new Schema(
     title: { type: String },
     description: { type: String },
     email: { type: String },
+    firstName: { type: String },
+    lastName: { type: String },
     image: { type: String },
     status: { type: String, enum: ["Open", "In Progress", "Closed"], default: "Open" },
     comments: [
