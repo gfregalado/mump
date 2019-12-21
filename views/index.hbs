@@ -1,17 +1,17 @@
 <!--Nav Bar-->
 
-<nav class="navbar fixed-top navbar-light bg-light">
+<nav class="navbar  navbar-light">
   <a class="navbar-brand" href="/">
     <h4>Mump</h4>
   </a>
   auth: {{userAuthenticated }}
   {{#if userAuthenticated }}
 
-  <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
+  <button type="button" class="btn btn-outline" onclick="location.href='/logout'">
     Logout
-  </button> 
+  </button>
   {{else}}
-  <button type="button" class="btn btn-primary" onclick="location.href='/login'">
+  <button type="button" class="btn btn-outline" onclick="location.href='/login'">
     Login
   </button>
 
@@ -20,17 +20,24 @@
 
 
 <div class="banner">
-  <div class="signup-headline">
-    <h2>Or <a href="/signup">Signup</a> and start managing your workspace more efficiently today.</h2>
+  <div class="banner-image">
+    <div class="headline">
+      <h2>START MUMBLING LESS</h2> <br>
+      <h2>AND DOING MORE <button type="button" class="btn btn-outline" onclick="location.href='/signup'">
+          Sign up
+        </button></h2>
+
+    </div>
+
+
+
   </div>
-  <div class="banner-image"></div>
 
 </div>
 
+<div class="about">
 
-
-
-
+</div>
 
 
 
