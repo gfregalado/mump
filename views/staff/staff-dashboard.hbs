@@ -2,30 +2,32 @@
 
   <!-- 1st column on the left that contains AVATAR , MENU and LOGOUT button  -->
   <section class="left-navigator">
+
     <div class="user">
-      <img src="/images/default-avatar.png" alt="" class="user-avatar">
-
-      <!-- should fetch the USER each and close it  -->
-
-      <h4>Hello there {{userAuthenticated.firstName}} </h4>
-
-
+      <img src="/images/avatar2.png" alt="" class="user-avatar" width="100px" height="100px">
+      <h5>{{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }}</h5>
     </div>
 
     <div class="nav-buttons">
-      <button class="btn btn-primary">Dashboard</button>
-      <button class="btn btn-primary">Current Tickets</button>
-      <button class="btn btn-primary">Closed Tickets</button>
-      <button class="btn btn-primary">Clients</button>
+      <button class="btn btn-outline-secondary active"> <img class="test" src="/images/icons/dashboard-green.png"
+          alt="dashboard">
+        Dashboard</button>
+      <button class="btn btn-outline-secondary"> <img class="test" src="/images/icons/ticket-grey.png"
+          alt="ticket">Current Tickets</button>
+      <button class="btn btn-outline-secondary"><img class="test" src="/images/icons/past-grey.png"
+          alt="past-tickets">Closed Tickets</button>
+      <button class="btn btn-outline-secondary"><img class="test" src="/images/icons/contacts-grey.png"
+          alt="contacts">Clients</button>
     </div>
 
     <div class="logout-button">
       <button onclick="location.href='/login'" class="btn btn-primary">Logout</button>
     </div>
+
   </section>
 
-  <!-- 3rd column - right - Contains div with RECENTS , CREATED TICKETS , ADD A TICKET BUTTON-->
 
+  <!-- 2nd column - center - Contains div with DASHBOARDNAME , STATS , CALENDAR -->
 
   <section class="main-dashboard">
 
@@ -34,12 +36,9 @@
     </div>
 
     <div class="stats">
-
     </div>
 
-    <div class="calendar">
-
-    </div>
+    <div id='calendar'></div>
 
   </section>
 
@@ -47,17 +46,19 @@
   <!-- 3rd column - right - Contains div with RECENTS , CREATED TICKETS , ADD A TICKET BUTTON-->
 
   <section class="ticket-overview">
+
     <div class="ticket-recents">
       <h4>Recent Tickets</h4>
     </div>
     <div class="created-ticket-area">
-      {{#each tickets}}
+      {{!-- {{#each tickets}}
       <div> {{this.ticket}} </div>
-      {{/each}}
+      {{/each}} --}}
     </div>
 
     <div class="ticket-open">
       <button onclick="location.href='/ticketcreation'" class="btn btn-primary">Open Ticket</button>
     </div>
+
   </section>
 </div>
