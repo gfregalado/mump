@@ -128,10 +128,29 @@ top: -7px;
   width: 100%;
 }
 
+#drum{
+  position: relative;
+  top: -800px;
+}
+
 .about{
   height: 100vh;
   width: 100%;
   background-color: F7F8F9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.about h3{
+  height: 100px;
+}
+
+.block-about{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-primary {
