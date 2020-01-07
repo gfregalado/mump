@@ -9,7 +9,10 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: #1d4d4f;
+}
+a:hover{
+  color: #1d4d4f
 }
 
 #form {
@@ -36,8 +39,8 @@ a {
 }
 
 #form button {
-  background: #43a3e6;
-  border: 1px solid #43a3e6;
+  background: #1d4d4f;
+  border: 1px solid #1d4d4f;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -52,7 +55,7 @@ a {
 
 #form button:hover {
   background: #fff;
-  color: #43a3e6;
+  color: #1d4d4f;
   transition: 0.3s ease background;
 }
 
@@ -118,8 +121,8 @@ a {
   font-weight: 600;
   font-size: 2rem;
   color: #1d4d4f;
-  line-height:60px;
-  letter-spacing: 5px;
+  line-height:40px;
+  letter-spacing: 2px;
 }
 
 
