@@ -106,7 +106,6 @@ a {
 
 .banner-image {
   background-image: url("/images/banner2.png");
-  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%; }
