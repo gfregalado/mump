@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/ticket");
 const User = require("../models/user");
-// const uploadCloud = require("../config/cloudinary.js");
+const uploadCloud = require("../config/cloudinary.js");
 
 //Staff-Dashboard View
 
@@ -38,32 +38,39 @@ router.get("/staff/staff-tickets", (req, res, next) => {
 
 // Staff ticket Creation Modal
 
-router.post("/ticketcreation", (req, res, next) => {
-  const title = req.body.title;
-  const description = req.body.description;
-  const email = req.session.currentUser.email;
-  const firstName = req.session.currentUser.firstName;
-  const lastName = req.session.currentUser.lastName;
+router.post(
+  "/ticketcreation",
+  uploadCloud.single("photo"),
+  (req, res, next) => {
+    const { title, description } = req.body;
+    const imageName = req.file.originalName;
+    const imagePath = req.file.url;
+    const email = req.session.currentUser.email;
+    const firstName = req.session.currentUser.firstName;
+    const lastName = req.session.currentUser.lastName;
 
-  Ticket.create({
-    title,
-    description,
-    email,
-    firstName,
-    lastName
-  })
-    .then(() => {
-      res.redirect("/staff/staff-tickets");
+    Ticket.create({
+      title,
+      description,
+      imageName,
+      imagePath,
+      email,
+      firstName,
+      lastName
     })
-    .then(() => {
-      res.render("staff/staff-current-tickets", {
-        userAuthenticated: req.session.currentUser
+      .then(() => {
+        res.redirect("/staff/staff-tickets");
+      })
+      .then(() => {
+        res.render("staff/staff-current-tickets", {
+          userAuthenticated: req.session.currentUser
+        });
+      })
+      .catch(error => {
+        console.log(error);
       });
-    })
-    .catch(error => {
-      console.log(error);
-    });
-});
+  }
+);
 
 // Staff Users View
 
