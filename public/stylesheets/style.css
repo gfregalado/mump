@@ -337,7 +337,9 @@ textarea {
   border: #d2ddd1; }
 
 .scrollit {
-  overflow: scroll;
-  height: 50px; }
+  overflow: scroll; }
+
+.ticket-recents {
+  margin-top: 10px; }
 
 /*# sourceMappingURL=style.css.map */
