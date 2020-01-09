@@ -42,19 +42,19 @@
           Total Clients
         </div>
         <div class="box">
-          <img src="/images/icons/contacts-grey.png"> Open Tickets </div>
+          <img src="/images/icons/ticket-grey.png"> Open Tickets </div>
         <div class="box">
-          <img src="/images/icons/contacts-grey.png"> Closed Tickets </div>
+          <img src="/images/icons/contacts-grey.png"> Number of Messages </div>
 
       </div>
 
       <div class="stats-row2">
         <div class="box">
-          <img src="/images/icons/contacts-grey.png"> Time to Close</div>
+          <img src="/images/icons/contacts-grey.png"> New Clients Today</div>
         <div class="box">
-          <img src="/images/icons/contacts-grey.png"> New Clients Today </div>
+          <img src="/images/icons/ticket-grey.png"> Closed Tickets </div>
         <div class="box">
-          <img src="/images/icons/contacts-grey.png"> Number of Messages</div>
+          <img src="/images/icons/past-grey.png"> Time to Close</div>
 
       </div>
 
@@ -69,14 +69,13 @@
       <h3> Open Tickets</h3>
     </div>
 
-    <div class="created-ticket-area" class="scrollit">
+    <div class="created-ticket-area scrollit">
       <table class="table table-hover">
 
         <tbody>
           {{#each tickets}}
           <tr>
             <th>{{this.title}}</th>
-
             <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ticketDetails">
                 Check ticket
               </button></td>
@@ -85,6 +84,30 @@
         </tbody>
       </table>
     </div>
-
   </section>
+
+  <!-- Modal Check Ticket -->
+  <div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="ticketDetailsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="ticketDetailsLabel">Ticket Details</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Title:
+          {{tickets.[0].title}}
+          </br>
+          Description:
+          {{tickets.[0].description}}
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

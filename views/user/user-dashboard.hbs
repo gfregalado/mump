@@ -4,7 +4,7 @@
   <a class="navbar-brand" href="/">
     <h4>Mump</h4>
   </a>
-  Welcome to the User Dashboard {{ userAuthenticated.firstName }}
+  Welcome to the User Dashboard {{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }}
   {{#if userAuthenticated }}
   <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
     Logout
@@ -17,9 +17,7 @@
   {{/if}}
 </nav>
 
-<div class="container dashboard">
-  <h1>You have no open tickets</h1>
-
+{{!-- <div class="container dashboard">
 
   {{!-- TABLE WITH THE TICKETS --}}
 
@@ -53,8 +51,9 @@
       Open a new ticket
     </button>
   </div>
-</div>
-<!-- Modal Submit Ticket -->
+</div> --}}
+
+{{!-- <!-- Modal Submit Ticket -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -66,7 +65,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/ticketcreation" method="POST" id="form">
+        <form action="/ticketcreation" method="POST" id="form" enctype="multipart/form-data">
 
 
           <label for="title"><strong>Title:</strong></label>
@@ -77,7 +76,8 @@
           <textarea type="text" class="form-control" name="description" rows="3"></textarea>
           <br>
 
-          <button>Upload picture</button>
+          <input type="file" name="image">
+          
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -86,4 +86,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}

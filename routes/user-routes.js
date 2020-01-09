@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/ticket");
+const User = require("../models/user");
 const uploadCloud = require("../config/cloudinary.js");
 
 
@@ -46,32 +47,32 @@ router.get("/user/ticket", (req, res, next) => {
     });
 });
 
-//Ticket Creation
+// //Ticket Creation
 
-router.post("/ticketcreation", (req, res, next) => {
-  const title = req.body.title;
-  const description = req.body.description;
-  const email = req.session.currentUser.email;
+// router.post("/ticketcreation", (req, res, next) => {
+//   const title = req.body.title;
+//   const description = req.body.description;
+//   const email = req.session.currentUser.email;
 
-  Ticket.create({
-    title,
-    description,
-    email
-  })
-    .then(() => {
-      res.redirect("/user/dashboard");
-    })
-    .then(() => {
-      console.log("user2", req.session.currentUser);
+//   Ticket.create({
+//     title,
+//     description,
+//     email
+//   })
+//     .then(() => {
+//       res.redirect("/user/dashboard");
+//     })
+//     .then(() => {
+//       console.log("user2", req.session.currentUser);
 
-      res.render("user/user-dashboard", {
-        userAuthenticated: req.session.currentUser
-      });
-      // console.log("USER INFO:" + theUsername)
-    })
-    .catch(error => {
-      console.log(error);
-    });
-});
+//       res.render("user/user-dashboard", {
+//         userAuthenticated: req.session.currentUser
+//       });
+//       // console.log("USER INFO:" + theUsername)
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// });
 
 module.exports = router;

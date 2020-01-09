@@ -63,43 +63,69 @@
         <button class="btn btn-primary" data-toggle="modal" data-target="#createTicket">Create Ticket</button>
       </div>
     </div>
-
-
-
   </section>
 </div>
 
-<!-- Modal Submit Ticket -->
-<div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="createTicketLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="createTicketLabel">Submit a ticket</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <!-- Modal Submit Ticket -->
+  <div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="createTicketLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createTicketLabel">Submit a ticket</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="modal-body">
+          <form action="/ticketcreation" method="POST" id="form">
+
+
+            <label for="title"><strong>Title:</strong></label>
+            <input type="text" name="title" required>
+
+
+            <label for="description"><strong>Description:</strong></label>
+            <textarea type="text" class="form-control" name="description" rows="3" required></textarea>
+            <br>
+
+            <input type="file" name="image">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+
+        </div>
       </div>
+    </div>
+  </div>
 
 
-      <div class="modal-body">
-        <form action="/ticketcreation" method="POST" id="form" enctype="multipart/form-data">
+  <!-- Modal Check Ticket -->
+  <div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="ticketDetailsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="ticketDetailsLabel">Ticket Details</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Title:
+          {{tickets.[0].title}}
+          </br>
+          Description:
+          {{tickets.[0].description}}
+        </div>
+        <div class="modal-footer">
 
-
-          <label for="title"><strong>Title:</strong></label>
-          <input type="text" name="title" required>
-
-
-          <label for="description"><strong>Description:</strong></label>
-          <textarea type="text" class="form-control" name="description" rows="3" required></textarea>
-          <br>
-
-          <input type="file" name="image"> 
-
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
       </div>
-
     </div>
   </div>
 </div>

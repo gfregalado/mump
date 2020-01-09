@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/ticket");
 const User = require("../models/user");
-const uploadCloud = require("../config/cloudinary.js");
-
+// const uploadCloud = require("../config/cloudinary.js");
 
 //Staff-Dashboard View
 
@@ -57,19 +56,14 @@ router.post("/ticketcreation", (req, res, next) => {
       res.redirect("/staff/staff-tickets");
     })
     .then(() => {
-      // console.log("user2", req.session.currentUser);
-
       res.render("staff/staff-current-tickets", {
         userAuthenticated: req.session.currentUser
       });
-      // console.log("USER INFO:" + theUsername)
     })
     .catch(error => {
       console.log(error);
     });
 });
-
-module.exports = router;
 
 // Staff Users View
 
@@ -96,3 +90,5 @@ router.get("/staff/closed-tickets", (req, res, next) => {
       });
     });
 });
+
+module.exports = router;
