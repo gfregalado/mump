@@ -9,7 +9,4 @@ router.get('/', (req, res, next) => {
   res.render("index", { userAuthenticated: req.session.currentUser });
 });
 
-
-
-
 module.exports = router;
