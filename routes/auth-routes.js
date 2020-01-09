@@ -42,12 +42,13 @@ router.post("/signup", (req, res) => {
         firstName,
         lastName
       })
-        .then(() => {
+        .then((user) => {
           req.session.currentUser = user;
-          res.render("index", { userAuthenticated: req.session.currentUser });
+          console.log("loggoed user", user);
+          res.redirect("/user/user-dashboard");
         })
         .catch(error => {
-          res.render('index');
+          res.render("user/user-dashboard");
         });
     })
     .catch(error => {
@@ -90,7 +91,7 @@ router.post("/login", (req, res, next) => {
         // Save the login in the session!
         req.session.currentUser = user;
 
-        res.redirect("/user/dashboard");
+        res.redirect("/user/user-dashboard");
       }
       else {
         res.render("auth/login", {

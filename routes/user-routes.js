@@ -21,8 +21,8 @@ router.get("/user/tickets", (req, res, next) => {
   res.render("user/user-ticket-area");
 });
 
-router.get("/user/dashboard", (req, res, next) => {
-  const email = req.session.currentUser.email;
+router.get("/user/user-dashboard", (req, res, next) => {
+  const email = req.session.currentUser;
   Ticket.find({ email: email }).then(tickets => {
     res.render("user/user-dashboard", {
       userAuthenticated: req.session.currentUser,
@@ -48,26 +48,30 @@ router.get("/user/ticket", (req, res, next) => {
 
 //Ticket Creation
 
-router.post("/ticketcreation", (req, res, next) => {
+router.post("/ticketcreationuser", (req, res, next) => {
   const title = req.body.title;
   const description = req.body.description;
   const email = req.session.currentUser.email;
+  const firstName = req.session.currentUser.firstName;
+  const lastName = req.session.currentUser.lastName;
 
   Ticket.create({
     title,
     description,
-    email
+    email,
+    firstName,
+    lastName
   })
     .then(() => {
-      res.redirect("/user/dashboard");
-    })
-    .then(() => {
-      console.log("user2", req.session.currentUser);
-
-      res.render("user/user-dashboard", {
+      console.log("I AM HERE")
+      res.redirect("/user/user-dashboard", {
         userAuthenticated: req.session.currentUser
       });
-      // console.log("USER INFO:" + theUsername)
+    })
+    .then(() => {
+      res.render("/user/user-dashboard", {
+        userAuthenticated: req.session.currentUser
+      });
     })
     .catch(error => {
       console.log(error);
