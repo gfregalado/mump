@@ -9,11 +9,11 @@
       </div>
 
       <div class="nav-buttons">
-        <button class="btn btn-outline-secondary" onclick="location.href='/staff/dashboard'"> <img class="test"
+        <button class="btn btn-outline-secondary active" onclick="location.href='/staff/dashboard'"> <img class="test"
             src="/images/icons/dashboard-grey.png" alt="dashboard">
           Dashboard</button>
-        <button class="btn btn-outline-secondary active" onclick="location.href='/staff/staff-tickets'"> <img
-            class="test" src="/images/icons/ticket-green.png" alt="ticket">Current Tickets</button>
+        <button class="btn btn-outline-secondary" onclick="location.href='/staff/staff-tickets'"> <img class="test"
+            src="/images/icons/ticket-green.png" alt="ticket">Current Tickets</button>
         <button class="btn btn-outline-secondary" onclick="location.href='/staff/closed-tickets'"><img class="test"
             src="/images/icons/past-grey.png" alt="past-tickets">Closed Tickets</button>
         <button class="btn btn-outline-secondary" onclick="location.href='/staff/users'"><img class="test"
@@ -42,30 +42,28 @@
         <div class="box">
           <img src="/images/icons/contacts-grey.png">
           Total Clients
-          <div>
-            {{#each tickets}}
-            {{this.length}} 5
-            {{/each}}
+
+          <div class="stats-numbers">
+            <h3>{{tickets.length}}</h3>
           </div>
         </div>
         <div class="box">
-          <img src="/images/icons/ticket-grey.png"> Open Tickets
+          <img src="/images/icons/ticket-grey.png">
+          Open Tickets
+
+          <div class="stats-numbers">
+            <h3>{{tickets.length}}</h3>
+          </div>
         </div>
         <div class="box">
-          <img src="/images/icons/contacts-grey.png"> Number of Messages
+          <img src="/images/icons/contacts-grey.png">
+          Closed Tickets
+
+          <div class="stats-numbers">
+            <h3>{{tickets.length}}</h3>
+          </div>
         </div>
       </div>
-
-      <div class="stats-row2">
-        <div class="box">
-          <img src="/images/icons/contacts-grey.png"> New Clients Today</div>
-        <div class="box">
-          <img src="/images/icons/ticket-grey.png"> Closed Tickets </div>
-        <div class="box">
-          <img src="/images/icons/past-grey.png"> Time to Close</div>
-
-      </div>
-
 
   </section>
 

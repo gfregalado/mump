@@ -299,7 +299,7 @@ textarea {
 }
 
 .dashboard-name {
-  margin-top: 20px;
+  margin-top: -55px;
 }
 
 .stats-grid {
@@ -319,9 +319,9 @@ textarea {
 }
 
 .box {
-  width: 204px;
-  height: 183px;
-  border: 1px solid grey;
+  width: 15vw;
+  height: 25vh;
+  border: 2px solid grey;
   margin: 10px;
   text-align: center;
   vertical-align: middle;
@@ -414,3 +414,7 @@ textarea {
   width: 25px;
 }
 
+.stats-numbers {
+  justify-items: center;
+  font-size: 5%;
+}
