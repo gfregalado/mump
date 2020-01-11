@@ -12,14 +12,9 @@ router.get("/staff/dashboard", (req, res, next) => {
   Ticket.find({})
     .sort({ date: -1 })
     .then(tickets => {
-      console.log(tickets);
       res.render("staff/staff-dashboard", {
         userAuthenticated: req.session.currentUser,
         tickets: tickets
-        // // }.catch(error => {
-        // //   res.redirect("index");
-        // //   console.log(error);
-        // })
       });
     });
 });

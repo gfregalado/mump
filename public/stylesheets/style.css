@@ -304,7 +304,7 @@ textarea {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around; }
+  justify-content: flex-start; }
 
 .table-item {
   border-left: Solid 2px #1d4d4f; }

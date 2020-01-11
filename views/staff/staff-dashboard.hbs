@@ -9,11 +9,11 @@
       </div>
 
       <div class="nav-buttons">
-        <button class="btn btn-outline-secondary" onclick="location.href='/staff/dashboard'"> <img class="test"
+        <button class="btn btn-outline-secondary active" onclick="location.href='/staff/dashboard'"> <img class="test"
             src="/images/icons/dashboard-grey.png" alt="dashboard">
           Dashboard</button>
-        <button class="btn btn-outline-secondary active" onclick="location.href='/staff/staff-tickets'"> <img
-            class="test" src="/images/icons/ticket-green.png" alt="ticket">Current Tickets</button>
+        <button class="btn btn-outline-secondary" onclick="location.href='/staff/staff-tickets'"> <img class="test"
+            src="/images/icons/ticket-green.png" alt="ticket">Current Tickets</button>
         <button class="btn btn-outline-secondary" onclick="location.href='/staff/closed-tickets'"><img class="test"
             src="/images/icons/past-grey.png" alt="past-tickets">Closed Tickets</button>
         <button class="btn btn-outline-secondary" onclick="location.href='/staff/users'"><img class="test"
@@ -43,9 +43,7 @@
           <img src="/images/icons/contacts-grey.png">
           Total Clients
           <div>
-            {{#each tickets}}
-            {{this.length}} 5
-            {{/each}}
+            {{ticketCount}}
           </div>
         </div>
         <div class="box">
@@ -74,7 +72,7 @@
   <section class="ticket-overview">
 
     <div class="ticket-recents">
-      <h5>Open Tickets</h5>
+      <h5>Ongoing Tickets</h5>
     </div>
 
     <div class="created-ticket-area scrollit">
