@@ -66,7 +66,6 @@ router.post("/ticketcreationuser", (req, res, next) => {
     creationDate
   })
     .then(() => {
-      console.log("I AM HERE");
       res.redirect("/user/user-dashboard", {
         userAuthenticated: req.session.currentUser
       });

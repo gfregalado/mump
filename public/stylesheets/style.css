@@ -173,18 +173,26 @@ textarea {
 .left-navigator {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   width: 17%;
-  height: 100vh;
-  border: solid 2px #1d4d4f;
-  background-color: white; }
+  height: 100vh; }
+
+.white-frame {
+  background-color: white;
+  border-radius: 20px;
+  height: 97vh;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column; }
 
 .user {
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-direction: column;
-  border-bottom: solid 1px #e5e5e5; }
+  flex-direction: column; }
 
 .user img {
   border: solid 1px black;
@@ -198,7 +206,7 @@ textarea {
 .nav-buttons {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 430px;
   justify-content: flex-start; }
 
 .nav-buttons button {
@@ -243,7 +251,6 @@ textarea {
 .center-column {
   width: 63%;
   height: 100vh;
-  border: solid 1px #1d4d4f;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -295,14 +302,14 @@ textarea {
 .ticket-overview {
   width: 20%;
   height: 100vh;
-  border: solid 2px #1d4d4f;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center; }
+  justify-content: space-around; }
+
+.table-item {
+  border-left: Solid 2px #1d4d4f; }
 
 .logout-button {
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -341,7 +348,10 @@ textarea {
   overflow: scroll; }
 
 .ticket-recents {
-  margin-top: 10px; }
+  margin-top: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center; }
 
 .attach-item img {
   width: 25px; }

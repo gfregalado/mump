@@ -9,7 +9,7 @@ const uploadCloud = require("../config/cloudinary.js");
 
 router.get("/staff/dashboard", (req, res, next) => {
   const email = req.session.currentUser.email;
-  Ticket.find({ email: email })
+  Ticket.find({})
     .sort({ date: -1 })
     .then(tickets => {
       console.log(tickets);
@@ -102,3 +102,21 @@ router.get("/staff/closed-tickets", (req, res, next) => {
 });
 
 module.exports = router;
+
+
+// Staff view of each individual ticket
+
+router.get("/staff/staff-ticket", (req, res, next) => {
+  const ticketID = req.query.ticket_id;
+  Ticket.find({ _id: ticketID })
+    .then(ticket => {
+      console.log(ticket);
+      res.render("staff/staff-ticket", {
+        userAuthenticated: req.session.currentUser,
+        ticket: ticket
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
