@@ -18,7 +18,7 @@ const mongoStore = require("connect-mongo")(session);
 // -------------------------------------------
 
 mongoose
-  .connect('mongodb://localhost/mump-project', { useNewUrlParser: true })
+  .connect("mongodb://localhost/mump-project", { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`

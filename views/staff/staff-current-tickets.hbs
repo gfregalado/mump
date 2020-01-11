@@ -80,31 +80,30 @@
         </button>
       </div>
 
-
       <div class="modal-body">
-        <form action="/ticketcreation" method="POST" id="form">
+        <form action="/ticketcreation" method="POST" id="form" enctype="multipart/form-data">
 
-
-          <label for="title"><strong>Title:</strong></label>
+          <label for="title"><strong>What's the title of your ticket?:</strong></label>
           <input type="text" name="title" required>
 
-
-          <label for="description"><strong>Description:</strong></label>
+          <label for="description"><strong>Give it a nice description:</strong></label>
           <textarea type="text" class="form-control" name="description" rows="3" required></textarea>
           <br>
 
-          <input type="file" name="image">
+          <label for="imagePath">Attachments:</label>
+          <input type="file" name="photo">
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" value="SAVE" class="btn btn-primary">Submit</button>
         </form>
       </div>
+
       <div class="modal-footer">
 
       </div>
+
     </div>
   </div>
 </div>
-
 
 <!-- Modal Check Ticket -->
 <div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="ticketDetailsLabel"
@@ -118,11 +117,14 @@
         </button>
       </div>
       <div class="modal-body">
-        Title:
-        {{tickets.[0].title}}
-        </br>
-        Description:
+        <h5><strong>Title:</strong> {{tickets.[0].title}} </h5>
+        <br>
+        <h5><strong>Description:</strong></h5>
         {{tickets.[0].description}}
+      </div>
+      <div class="modal-body">
+        <h5><strong>Attachment:</strong></h5>
+        <img class="attach-item" src="{{tickets.[0].imagePath}}" width="50%" alt="">
       </div>
       <div class="modal-footer">
 

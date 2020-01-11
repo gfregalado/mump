@@ -5,7 +5,6 @@ const User = require("../models/user");
 const uploadCloud = require("../config/cloudinary.js");
 const moment = require('moment');
 
-
 // this router triggers LOGIN on any attempt to enter the URL  without having the session - LOGIN ROUTE For BOTH
 router.use((req, res, next) => {
   if (req.session.currentUser) {
@@ -48,7 +47,7 @@ router.get("/user/ticket", (req, res, next) => {
     });
 });
 
-// //Ticket Creation
+//Ticket Creation
 
 router.post("/ticketcreationuser", (req, res, next) => {
   const title = req.body.title;
@@ -67,7 +66,19 @@ router.post("/ticketcreationuser", (req, res, next) => {
     creationDate
   })
     .then(() => {
+<<<<<<< HEAD
       res.redirect("user/user-dashboard");
+=======
+      console.log("I AM HERE");
+      res.redirect("/user/user-dashboard", {
+        userAuthenticated: req.session.currentUser
+      });
+    })
+    .then(() => {
+      res.render("/user/user-dashboard", {
+        userAuthenticated: req.session.currentUser
+      });
+>>>>>>> 148a3d46f2e77d9d0199beb599b0ef7662b60dba
     })
     .catch(error => {
       console.log(error);
