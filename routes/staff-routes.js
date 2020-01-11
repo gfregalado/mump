@@ -2,14 +2,14 @@ const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/ticket");
 const User = require("../models/user");
-const moment = require("moment");
+const moment = require('moment');
 const uploadCloud = require("../config/cloudinary.js");
 
 //Staff-Dashboard View
 
 router.get("/staff/dashboard", (req, res, next) => {
   const email = req.session.currentUser.email;
-  Ticket.find({ email: email })
+  Ticket.find({})
     .sort({ date: -1 })
     .then(tickets => {
       console.log(tickets);
@@ -39,25 +39,6 @@ router.get("/staff/staff-tickets", (req, res, next) => {
 
 // Staff ticket Creation Modal
 
-// router.post("/ticketcreation", (req, res, next) => {
-//   const title = req.body.title;
-//   const description = req.body.description;
-//   const email = req.session.currentUser.email;
-//   const firstName = req.session.currentUser.firstName;
-//   const lastName = req.session.currentUser.lastName;
-//   const creationDate = moment().format("MMM Do YYYY")
-
-//   Ticket.create({
-//     title,
-//     description,
-//     email,
-//     firstName,
-//     lastName,
-//     creationDate
-//   })
-//     .then(() => {
-//       res.redirect("/staff/staff-tickets");
-
 router.post(
   "/ticketcreation",
   uploadCloud.single("photo"),
@@ -68,7 +49,7 @@ router.post(
     const email = req.session.currentUser.email;
     const firstName = req.session.currentUser.firstName;
     const lastName = req.session.currentUser.lastName;
-    const creationDate = moment().format("MMM Do YYYY");
+    const creationDate = moment().format("MMM Do YYYY")
 
     Ticket.create({
       title,
@@ -121,3 +102,21 @@ router.get("/staff/closed-tickets", (req, res, next) => {
 });
 
 module.exports = router;
+
+
+// Staff view of each individual ticket
+
+router.get("/staff/staff-ticket", (req, res, next) => {
+  const ticketID = req.query.ticket_id;
+  Ticket.find({ _id: ticketID })
+    .then(ticket => {
+      console.log(ticket);
+      res.render("staff/staff-ticket", {
+        userAuthenticated: req.session.currentUser,
+        ticket: ticket
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
