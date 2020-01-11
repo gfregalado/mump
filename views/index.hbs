@@ -1,6 +1,6 @@
 <!--Nav Bar-->
 
-<nav class="navbar  navbar-light">
+<nav class="navbar navbar-light">
   <a class="navbar-brand" href="/">
     <h4>Mump</h4>
   </a>
@@ -24,10 +24,17 @@
     <div class="headline">
       <h2>START MUMBLING LESS AND DOING MORE</h2> <br>
       <p>Mump is your solution to all your workspace management issues!</p>
+      {{#if userAuthenticated }}
+      <button type="button" class="btn btn-outline" onclick="location.href='/staff/dashboard'">
+        Take me to dashboard!
+      </button>
+      {{else}}
       <h2> <button type="button" class="btn btn-outline" onclick="location.href='/signup'">
-          try free
+          Try me now!
         </button></h2>
+      {{/if}}
     </div>
+
     <div class="phone-mockup">
       <img src="/images/phone2.png" alt="phone-mockup" width="130%">
     </div>

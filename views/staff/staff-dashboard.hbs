@@ -40,12 +40,18 @@
         <div class="box">
           <img src="/images/icons/contacts-grey.png">
           Total Clients
+          <div>
+            {{#each tickets}}
+            {{this.length}} 5
+            {{/each}}
+          </div>
         </div>
         <div class="box">
-          <img src="/images/icons/ticket-grey.png"> Open Tickets </div>
+          <img src="/images/icons/ticket-grey.png"> Open Tickets
+        </div>
         <div class="box">
-          <img src="/images/icons/contacts-grey.png"> Number of Messages </div>
-
+          <img src="/images/icons/contacts-grey.png"> Number of Messages
+        </div>
       </div>
 
       <div class="stats-row2">
@@ -104,7 +110,8 @@
           {{tickets.[0].description}}
         </div>
         <div class="modal-body">
-          <img src=`{{tickets.[0].imgPath}}` alt="">
+          <h5><strong>Attachment:</strong></h5>
+          <img class="attach-item" src="{{tickets.[0].imagePath}}" width="50%" alt="">
         </div>
 
         <div class="modal-footer">

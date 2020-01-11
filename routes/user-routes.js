@@ -3,7 +3,7 @@ const router = express.Router();
 const Ticket = require("../models/ticket");
 const User = require("../models/user");
 const uploadCloud = require("../config/cloudinary.js");
-const moment = require('moment');
+const moment = require("moment");
 
 // this router triggers LOGIN on any attempt to enter the URL  without having the session - LOGIN ROUTE For BOTH
 router.use((req, res, next) => {
@@ -50,13 +50,12 @@ router.get("/user/ticket", (req, res, next) => {
 //Ticket Creation
 
 router.post("/ticketcreationuser", (req, res, next) => {
-  const title = req.body.title;
-  const description = req.body.description;
+  const { title, description } = req.body;
   const email = req.session.currentUser.email;
   const firstName = req.session.currentUser.firstName;
   const lastName = req.session.currentUser.lastName;
-  const creationDate = moment().format("MMM Do YYYY")
-  console.log("I AM HERE" + moment())
+  const creationDate = moment().format("MMM Do YYYY");
+  console.log("I AM HERE" + moment());
   Ticket.create({
     title,
     description,
@@ -66,9 +65,6 @@ router.post("/ticketcreationuser", (req, res, next) => {
     creationDate
   })
     .then(() => {
-<<<<<<< HEAD
-      res.redirect("user/user-dashboard");
-=======
       console.log("I AM HERE");
       res.redirect("/user/user-dashboard", {
         userAuthenticated: req.session.currentUser
@@ -78,7 +74,6 @@ router.post("/ticketcreationuser", (req, res, next) => {
       res.render("/user/user-dashboard", {
         userAuthenticated: req.session.currentUser
       });
->>>>>>> 148a3d46f2e77d9d0199beb599b0ef7662b60dba
     })
     .catch(error => {
       console.log(error);
