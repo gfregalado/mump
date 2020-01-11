@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/ticket");
 const User = require("../models/user");
+const moment = require('moment');
 // const uploadCloud = require("../config/cloudinary.js");
 
 //Staff-Dashboard View
@@ -44,13 +45,15 @@ router.post("/ticketcreation", (req, res, next) => {
   const email = req.session.currentUser.email;
   const firstName = req.session.currentUser.firstName;
   const lastName = req.session.currentUser.lastName;
+  const creationDate = moment().format("MMM Do YYYY")
 
   Ticket.create({
     title,
     description,
     email,
     firstName,
-    lastName
+    lastName,
+    creationDate
   })
     .then(() => {
       res.redirect("/staff/staff-tickets");

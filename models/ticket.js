@@ -10,13 +10,13 @@ const ticketSchema = new Schema(
     lastName: { type: String },
     image: { type: String },
     status: { type: String, enum: ["Open", "In Progress", "Closed"], default: "Open" },
+    creationDate: { type: String },
     comments: [
       {
         user: String,
         comment: String,
       }
     ],
-    date: { type: Date, default: Date.now }
   },
   {
     timestamps: true

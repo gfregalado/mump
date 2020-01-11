@@ -166,8 +166,8 @@ textarea {
   justify-content: space-around; }
 
 .scroll-table {
-  height: 450px;
-  width: 1000px;
+  height: 40vh;
+  width: 100%;
   overflow: auto; }
 
 .left-navigator {
@@ -237,6 +237,7 @@ textarea {
 .page-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 200px; }
 
 .center-column {

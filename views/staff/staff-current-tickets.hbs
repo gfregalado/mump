@@ -40,6 +40,7 @@
           <thead>
             <tr>
               <th scope="col">Title:</th>
+              <th scope="col">User Email:</th>
               <th scope="col">Date created:</th>
               <th scope="col">Status:</th>
               <th scope="col">Details:</th>
@@ -49,7 +50,8 @@
             {{#each tickets}}
             <tr>
               <th scope="row">{{this.title}}</th>
-              <td>{{this.createdAt}}</td>
+              <td>{{this.email}}</td>
+              <td>{{this.creationDate}}</td>
               <td>{{this.status}}</td>
               <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ticketDetails">
                   Check ticket
@@ -66,66 +68,66 @@
   </section>
 </div>
 
-  <!-- Modal Submit Ticket -->
-  <div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="createTicketLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="createTicketLabel">Submit a ticket</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+<!-- Modal Submit Ticket -->
+<div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="createTicketLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createTicketLabel">Submit a ticket</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
 
-        <div class="modal-body">
-          <form action="/ticketcreation" method="POST" id="form">
+      <div class="modal-body">
+        <form action="/ticketcreation" method="POST" id="form">
 
 
-            <label for="title"><strong>Title:</strong></label>
-            <input type="text" name="title" required>
+          <label for="title"><strong>Title:</strong></label>
+          <input type="text" name="title" required>
 
 
-            <label for="description"><strong>Description:</strong></label>
-            <textarea type="text" class="form-control" name="description" rows="3" required></textarea>
-            <br>
+          <label for="description"><strong>Description:</strong></label>
+          <textarea type="text" class="form-control" name="description" rows="3" required></textarea>
+          <br>
 
-            <input type="file" name="image">
+          <input type="file" name="image">
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
 
-        </div>
       </div>
     </div>
   </div>
+</div>
 
 
-  <!-- Modal Check Ticket -->
-  <div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="ticketDetailsLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="ticketDetailsLabel">Ticket Details</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Title:
-          {{tickets.[0].title}}
-          </br>
-          Description:
-          {{tickets.[0].description}}
-        </div>
-        <div class="modal-footer">
+<!-- Modal Check Ticket -->
+<div class="modal fade" id="ticketDetails" tabindex="-1" role="dialog" aria-labelledby="ticketDetailsLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="ticketDetailsLabel">Ticket Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Title:
+        {{tickets.[0].title}}
+        </br>
+        Description:
+        {{tickets.[0].description}}
+      </div>
+      <div class="modal-footer">
 
-        </div>
       </div>
     </div>
   </div>
+</div>
 </div>
