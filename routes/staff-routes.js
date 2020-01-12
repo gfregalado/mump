@@ -9,13 +9,20 @@ const uploadCloud = require("../config/cloudinary.js");
 
 router.get("/staff/dashboard", (req, res, next) => {
   const email = req.session.currentUser.email;
-  Ticket.find({})
-    .sort({ date: -1 })
-    .then(tickets => {
-      res.render("staff/staff-dashboard", {
-        userAuthenticated: req.session.currentUser,
-        tickets: tickets
-      });
+  Ticket.find({ status: "Open" })
+    .sort({ createdAt: -1 })
+    .then(openTickets => {
+      User.find({ super: false }).then(users => {
+        Ticket.find({ status: "Closed" }).then(closedTickets => {
+          res.render("staff/staff-dashboard", {
+            userAuthenticated: req.session.currentUser,
+            openTickets: openTickets,
+            closedTickets: closedTickets,
+            users: users
+          });
+
+        })
+      })
     });
 });
 
@@ -23,11 +30,14 @@ router.get("/staff/dashboard", (req, res, next) => {
 
 router.get("/staff/staff-tickets", (req, res, next) => {
   Ticket.find({ status: "Open" })
-    .sort({ date: -1 })
+    .sort({ createdAt: -1 })
     .then(tickets => {
-      res.render("staff/staff-current-tickets", {
-        userAuthenticated: req.session.currentUser,
-        tickets: tickets
+      User.find().then(users => {
+        res.render("staff/staff-current-tickets", {
+          userAuthenticated: req.session.currentUser,
+          tickets: tickets,
+          users: users
+        });
       });
     });
 });

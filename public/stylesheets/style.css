@@ -275,9 +275,12 @@ textarea {
   margin: 10px; }
 
 .box {
+  background-color: white;
+  border: solid 2px #1d4d4f;
+  border-radius: 20px;
+  box-shadow: 0px 13px 28px -13px rgba(0, 0, 0, 0.75);
   width: 15vw;
   height: 25vh;
-  border: 2px solid grey;
   margin: 10px;
   text-align: center;
   vertical-align: middle;
@@ -344,9 +347,6 @@ textarea {
   background-color: #d2ddd1;
   border: #d2ddd1; }
 
-.scrollit {
-  overflow: scroll; }
-
 .ticket-recents {
   margin-top: 10px;
   padding: 20px;
@@ -359,5 +359,10 @@ textarea {
 .stats-numbers {
   justify-items: center;
   font-size: 5%; }
+
+.ticketViews {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; }
 
 /*# sourceMappingURL=style.css.map */
