@@ -363,7 +363,6 @@ textarea {
 .ticket-views {
   display: flex;
   justify-content: space-around;
-  align-items: flex-start; 
-}
+  align-items: flex-start; }
 
 /*# sourceMappingURL=style.css.map */
