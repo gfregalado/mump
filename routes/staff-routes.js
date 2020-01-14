@@ -93,6 +93,18 @@ router.get("/staff/users", (req, res, next) => {
     });
 });
 
+//Staff Close Ticket
+router.post("/close-ticket", (req, res, next) => {
+  const ticketID = req.query.ticket_id;
+  Ticket.update({ _id: ticketID }, { $set: { status: 'Closed' } })
+    .then(() => {
+      res.redirect('staff/staff-closed-tickets')
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+})
+
 // Staff Closed Tickets view
 
 router.get("/staff/closed-tickets", (req, res, next) => {

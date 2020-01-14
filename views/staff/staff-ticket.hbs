@@ -7,14 +7,17 @@
       <div class="card-header">
         <h3>{{ticket.[0].title}}</h3>
       </div>
-      <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" height="40%" width="40%">
       <div class="card-body">
-        <h5 class="card-title">Description:</h5>
-        <p class="card-text">{{ticket.[0].description}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" height="40%" width="40%">
+        <br>
+
+        <p class="card-text">
+          {{ticket.[0].description}}
+        </p>
+        <a href="/close-ticket" class="btn btn-outline">Close Ticket</a>
       </div>
       <div class="card-footer text-muted">
-        Open Date: {{ticket.[0].creationDate}}
+        <strong>Open Date:</strong> {{ticket.[0].creationDate}}
       </div>
     </div>
   </div>
@@ -26,13 +29,6 @@
       <div class="card-header">
         <h3>Message Board</h3>
       </div>
-
-<p><strong>Description: </strong>{{ticket.[0].description}}</p>
-
-<p><strong>Open date: </strong>{{ticket.[0].date}}</p>
-
-<p><strong>Image: </strong></p> <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" width="50%">
-
     </div>
   </div>
 </div>
