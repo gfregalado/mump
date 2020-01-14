@@ -427,3 +427,17 @@ textarea {
   justify-content: space-around;
   align-items: flex-start;
 }
+
+.ticket-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-header{
+  background-color: #1d4d4f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

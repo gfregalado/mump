@@ -6,11 +6,11 @@
   </a>
   Welcome to your Dashboard {{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }}!
   {{#if userAuthenticated }}
-  <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
+  <button type="button" class="btn btn-outline" onclick="location.href='/logout'">
     Logout
   </button>
   {{else}}
-  <button type="button" class="btn btn-primary" onclick="location.href='/login'">
+  <button type="button" class="btn btn-outline" onclick="location.href='/login'">
     Login
   </button>
 
@@ -41,11 +41,11 @@
             {{#each tickets}}
             <tr>
               <th scope="row">{{this.title}}</th>
-              <td class="hidden-sm-down">{{this.createdAt}}</td>
+              <td class="hidden-sm-down">{{this.creationDate}}</td>
               <td>{{this.status}}</td>
               <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ticketDetails"
                   onclick="location.href='/user/ticket?ticket_id={{this._id}}'">
-                Check ticket
+                  Check ticket
                 </button></td>
             </tr>
             {{/each}}
@@ -71,7 +71,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
+
       <div class="modal-body">
         <form action="/ticketcreationuser" method="POST" id="form" enctype="multipart/form-data">
 
