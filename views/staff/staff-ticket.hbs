@@ -1,19 +1,24 @@
-<h1>I am the user ticket area</h1>
+<div class="ticket-header">
+  <h1>I am the user ticket area</h1>
+</div>
 
 <div class="ticketViews">
-  <div class="container col-sm-6">
-    <div class="card ">
+  <div class="col-sm-6">
+    <div class="card">
       <div class="card-header">
         <h3>{{ticket.[0].title}}</h3>
       </div>
-      <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" height="40%" width="40%">
       <div class="card-body">
-        <h5 class="card-title">Description:</h5>
-        <p class="card-text">{{ticket.[0].description}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" height="40%" width="40%">
+        <br>
+
+        <p class="card-text">
+          {{ticket.[0].description}}
+        </p>
+        <a href="/close-ticket" class="btn btn-outline">Close Ticket</a>
       </div>
       <div class="card-footer text-muted">
-        Open Date: {{ticket.[0].creationDate}}
+        <strong>Open Date:</strong> {{ticket.[0].creationDate}}
       </div>
     </div>
   </div>
@@ -25,7 +30,6 @@
       <div class="card-header">
         <h3>Message Board</h3>
       </div>
-
     </div>
   </div>
 </div>
