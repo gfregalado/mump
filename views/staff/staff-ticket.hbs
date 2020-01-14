@@ -3,9 +3,9 @@
 </section>
 
 
-<section class="ticket-views">
-  <div class="container col-sm-6">
-    <div class="card">
+<div class="ticket-views">
+  <div class="col-sm-6">
+    <div class="card ">
       <div class="card-header">
         <h3>{{ticket.[0].title}}</h3>
       </div>
@@ -16,7 +16,12 @@
         <p class="card-text">
           {{ticket.[0].description}}
         </p>
-        <a href="/close-ticket" class="btn btn-outline">Close Ticket</a>
+
+        <form action="/staff/staff-ticket?ticket_id={{ticket.[0]._id}}" method="POST">
+          <button class="btn btn-outline" type="edit">Close Ticket</button>
+        </form>
+
+
       </div>
       <div class="card-footer text-muted">
         <strong>Open Date:</strong> {{ticket.[0].creationDate}}
@@ -36,7 +41,7 @@
 </section>
 
 <section class="ticket-creation-button">
-  <div >
+  <div>
     <button type="button" class="btn btn-primary"
       onclick="location.href='/staff/dashboard'">
       Back to dashboard
