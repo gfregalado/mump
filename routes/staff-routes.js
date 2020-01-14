@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/ticket");
 const User = require("../models/user");
-const moment = require('moment');
+const moment = require("moment");
 const uploadCloud = require("../config/cloudinary.js");
 
 //Staff-Dashboard View
@@ -20,9 +20,8 @@ router.get("/staff/dashboard", (req, res, next) => {
             closedTickets: closedTickets,
             users: users
           });
-
-        })
-      })
+        });
+      });
     });
 });
 
@@ -54,7 +53,7 @@ router.post(
     const email = req.session.currentUser.email;
     const firstName = req.session.currentUser.firstName;
     const lastName = req.session.currentUser.lastName;
-    const creationDate = moment().format("MMM Do YYYY")
+    const creationDate = moment().format("MMM Do YYYY");
 
     Ticket.create({
       title,
@@ -96,15 +95,18 @@ router.get("/staff/users", (req, res, next) => {
 //Staff Close Ticket
 router.post("/staff/staff-ticket", (req, res, next) => {
   const ticketID = req.query.ticket_id;
-  let currentTime = moment().format('MMMM Do YYYY, h:mm:ss a')
-  Ticket.update({ _id: ticketID }, { $set: { status: 'Closed', closeDate: currentTime } })
+  let currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+  Ticket.update(
+    { _id: ticketID },
+    { $set: { status: "Closed", closeDate: currentTime } }
+  )
     .then(() => {
-      res.redirect('/staff/closed-tickets')
+      res.redirect("/staff/closed-tickets");
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
     });
-})
+});
 
 // Staff Closed Tickets view
 
@@ -118,8 +120,6 @@ router.get("/staff/closed-tickets", (req, res, next) => {
       });
     });
 });
-
-
 
 // Staff view of each individual ticket
 

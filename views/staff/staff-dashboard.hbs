@@ -40,26 +40,26 @@
       <div class="stats-row1">
 
         <div class="box">
-          <h2>Total Clients</h2>
+          <h3>Total Clients</h3>
 
 
           <div class="stats-numbers">
-            <h3>{{users.length}}</h3>
+            <h4>{{users.length}}</h4>
           </div>
         </div>
 
         <div class="box">
-          <h2>Open Tickets</h2>
+          <h3>Open Tickets</h3>
           <div class="stats-numbers">
-            <h3>{{openTickets.length}}</h3>
+            <h4>{{openTickets.length}}</h4>
           </div>
         </div>
         <div class="box">
-          <h2>Closed Tickets</h2>
+          <h3>Closed Tickets</h3>
 
 
           <div class="stats-numbers">
-            <h3>{{closedTickets.length}}</h3>
+            <h4>{{closedTickets.length}}</h4>
           </div>
         </div>
       </div>
@@ -80,7 +80,11 @@
         <tbody>
           {{#each openTickets}}
           <tr class="table-item">
-            <th>{{this.title}}</th>
+            <th>
+              <a href='/staff/staff-ticket?ticket_id={{this._id}}'>
+                {{this.title}}
+              </a>
+            </th>
           </tr>
           {{/each}}
         </tbody>
