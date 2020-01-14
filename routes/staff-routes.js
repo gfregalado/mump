@@ -94,11 +94,12 @@ router.get("/staff/users", (req, res, next) => {
 });
 
 //Staff Close Ticket
-router.post("/close-ticket", (req, res, next) => {
+router.post("/staff/staff-ticket", (req, res, next) => {
   const ticketID = req.query.ticket_id;
-  Ticket.update({ _id: ticketID }, { $set: { status: 'Closed' } })
+  let currentTime = moment().format('MMMM Do YYYY, h:mm:ss a')
+  Ticket.update({ _id: ticketID }, { $set: { status: 'Closed', closeDate: currentTime } })
     .then(() => {
-      res.redirect('staff/staff-closed-tickets')
+      res.redirect('/staff/closed-tickets')
     })
     .catch((error) => {
       console.log(error);
@@ -118,7 +119,6 @@ router.get("/staff/closed-tickets", (req, res, next) => {
     });
 });
 
-module.exports = router;
 
 
 // Staff view of each individual ticket
@@ -137,3 +137,5 @@ router.get("/staff/staff-ticket", (req, res, next) => {
       console.log(err);
     });
 });
+
+module.exports = router;
