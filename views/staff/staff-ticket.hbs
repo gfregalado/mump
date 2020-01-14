@@ -1,10 +1,31 @@
 <h1>Ticket</h1>
 
 
+<div class="ticket-views">
+  <div class="container col-sm-6">
+    <div class="card ">
+      <div class="card-header">
+        <h3>{{ticket.[0].title}}</h3>
+      </div>
+      <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" height="40%" width="40%">
+      <div class="card-body">
+        <h5 class="card-title">Description:</h5>
+        <p class="card-text">{{ticket.[0].description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+      <div class="card-footer text-muted">
+        Open Date: {{ticket.[0].creationDate}}
+      </div>
+    </div>
+  </div>
 
-<h4><strong>Title: </strong> {{ticket.[0].title}}</h4>
+  {{!-- Message Board --}}
 
-<p><strong>Image: </strong>{{ticket.[0].Image}}</p>
+  <div class="container col-sm-6">
+    <div class="card ">
+      <div class="card-header">
+        <h3>Message Board</h3>
+      </div>
 
 <p><strong>Description: </strong>{{ticket.[0].description}}</p>
 
@@ -12,3 +33,6 @@
 
 <p><strong>Image: </strong></p> <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" width="50%">
 
+    </div>
+  </div>
+</div>

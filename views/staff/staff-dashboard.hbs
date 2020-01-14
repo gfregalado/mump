@@ -43,7 +43,7 @@
           <img src="/images/icons/contacts-grey.png">
           Total Clients
 
-          <div>
+          <div class="stats-numbers">
             <h3>{{users.length}}</h3>
           </div>
         </div>
@@ -52,16 +52,16 @@
           <img src="/images/icons/ticket-grey.png">
           Open Tickets
 
-          <div>
-            <h3>{{tickets.length}}</h3>
+          <div class="stats-numbers">
+            <h3>{{openTickets.length}}</h3>
           </div>
         </div>
         <div class="box">
           <img src="/images/icons/contacts-grey.png">
           Closed Tickets
 
-          <div>
-            <h3>{{tickets.length}}</h3>
+          <div class="stats-numbers">
+            <h3>{{closedTickets.length}}</h3>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
       <table class="table table-hover">
 
         <tbody>
-          {{#each tickets}}
+          {{#each openTickets}}
           <tr class="table-item">
             <th>{{this.title}}</th>
           </tr>
