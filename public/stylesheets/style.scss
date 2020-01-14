@@ -320,12 +320,12 @@ textarea {
 
 .box {
   background-color: white;
-  border: solid 2px #1d4d4f;
+  // border: solid 2px #1d4d4f;
   border-radius: 20px;
   box-shadow: 0px 13px 28px -13px rgba(0, 0, 0, 0.75);
   width: 15vw;
   height: 25vh;
-  margin: 10px;
+  margin: 20px;
   text-align: center;
   vertical-align: middle;
   line-height: 70px;
@@ -333,6 +333,9 @@ textarea {
 .box > img {
   width: 30px;
   height: 30px;
+}
+.box > h3 {
+  padding: 25px;
 }
 
 .table {
@@ -384,13 +387,14 @@ textarea {
 }
 
 .ticket-creation-button button {
-  width: 126px;
+  width: 100%;
   height: 40px;
   border-radius: 30px;
   border: #1d4d4f;
   background-color: #1d4d4f;
   box-shadow: 0px 13px 28px -13px rgba(0, 0, 0, 0.75);
 }
+
 
 .btn-outline-secondary {
   border: solid 1.5px #1d4d4f;
@@ -419,7 +423,7 @@ textarea {
 
 .stats-numbers {
   justify-items: center;
-  font-size: 5%;
+  font-size:2%
 }
 
 .ticket-views{

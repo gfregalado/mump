@@ -42,7 +42,7 @@ router.post("/signup", (req, res) => {
         firstName,
         lastName
       })
-        .then((user) => {
+        .then(user => {
           req.session.currentUser = user;
           console.log("loggoed user", user);
           res.redirect("/user/user-dashboard");
@@ -82,18 +82,24 @@ router.post("/login", (req, res, next) => {
         return;
       }
 
-      if (bcrypt.compareSync(thePassword, user.password) && user.super === true) {
+      if (
+        bcrypt.compareSync(thePassword, user.password) &&
+        user.super === true
+      ) {
         // Save the login in the session!
         req.session.currentUser = user;
 
         res.redirect("/staff/dashboard");
-      } if (bcrypt.compareSync(thePassword, user.password) && user.super === false) {
+      }
+      if (
+        bcrypt.compareSync(thePassword, user.password) &&
+        user.super === false
+      ) {
         // Save the login in the session!
         req.session.currentUser = user;
 
         res.redirect("/user/user-dashboard");
-      }
-      else {
+      } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"
         });
@@ -114,4 +120,3 @@ router.get("/logout", (req, res, next) => {
 });
 
 module.exports = router;
-
