@@ -4,7 +4,7 @@
   <a class="navbar-brand" href="/">
     <h4>Mump</h4>
   </a>
-  Welcome to your Dashboard {{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }} !
+  Welcome to your Dashboard {{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }}!
   {{#if userAuthenticated }}
   <button type="button" class="btn btn-danger" onclick="location.href='/logout'">
     Logout
@@ -18,8 +18,6 @@
 </nav>
 
 <div class="container dashboard">
-  <h1>You have no open tickets</h1>
-
 
   {{!-- TABLE WITH THE TICKETS --}}
 
@@ -45,8 +43,9 @@
               <th scope="row">{{this.title}}</th>
               <td class="hidden-sm-down">{{this.createdAt}}</td>
               <td>{{this.status}}</td>
-              <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ticketDetails">
-                  Check ticket
+              <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ticketDetails"
+                  onclick="location.href='/user/ticket?ticket_id={{this._id}}'">
+                Check ticket
                 </button></td>
             </tr>
             {{/each}}
@@ -72,8 +71,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      
       <div class="modal-body">
-        <form action="/ticketcreationuser" method="POST" id="form">
+        <form action="/ticketcreationuser" method="POST" id="form" enctype="multipart/form-data">
 
 
           <label for="title"><strong>Title:</strong></label>
@@ -84,8 +84,10 @@
           <textarea type="text" class="form-control" name="description" rows="3"></textarea>
           <br>
 
-          <button>Upload picture</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <label for="imagePath">Attachments:</label>
+          <input type="file" name="photo">
+
+          <button type="submit" value="SAVE" class="btn btn-primary">Submit</button>
         </form>
       </div>
       <div class="modal-footer">
