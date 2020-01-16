@@ -82,6 +82,7 @@ router.post(
         res.render("user/user-dashboard", {
           userAuthenticated: req.session.currentUser
         });
+        console.log(userAuthenticated);
       })
       .catch(error => {
         console.log(error);

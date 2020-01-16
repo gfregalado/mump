@@ -94,8 +94,10 @@ router.get("/staff/users", (req, res, next) => {
 
 //Staff Close Ticket
 router.post("/staff/staff-ticket", (req, res, next) => {
+
   const ticketID = req.query.ticket_id;
   const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+
   Ticket.update(
     { _id: ticketID },
     { $set: { status: "Closed", closeDate: currentTime } }
@@ -103,6 +105,7 @@ router.post("/staff/staff-ticket", (req, res, next) => {
     .then(() => {
       res.redirect("/staff/closed-tickets");
     })
+    
     .catch(error => {
       console.log(error);
     });

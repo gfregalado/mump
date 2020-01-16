@@ -24,10 +24,12 @@
     <div class="headline">
       <h2>START MUMBLING LESS AND DOING MORE!</h2> <br>
       <h5>Mump is your solution to all your workspace management issues!</h5>
-      {{#if userAuthenticated}}
-      <button type="button" class="btn btn-outline" onclick="location.href='/staff/dashboard'">
-        Take me to dashboard!
-      </button>
+      {{#if userAuthenticated }}
+      <div class="index-button-signup">
+        <button type="button" class="btn btn-outline" onclick="location.href='/user/user-dashboard'">
+          Take me to the dashboard!
+        </button>
+      </div>
       {{else}}
       <div class="index-button-signup">
         <button type="button" class="btn btn-outline" onclick="location.href='/signup'">
@@ -40,22 +42,6 @@
   </div>
 
 </div>
-
-{{!-- 
-<div class="about">
-
-  <h3>What we do</h3>
-  <div class="block-about">
-    <div class="image-about">
-      <img src="/images/comunity.jpg" alt="community" width="600px">
-    </div>
-    <div class="text-about">
-      <h4>Manage your space requests</h4>
-      <p>You can easily track your <br> community needs</p>
-    </div>
-  </div>
-
-</div> --}}
 
 
 
