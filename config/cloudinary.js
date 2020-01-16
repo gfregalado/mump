@@ -14,8 +14,10 @@ var storage = cloudinaryStorage({
   allowedFormats: ["jpg", "png", "jpeg"],
   filename: function(req, file, cb) {
     cb(null, file.originalName); // The file on cloudinary would have the same name as the original file name
+    // file.avatarName);
   }
 });
+
 const uploadCloud = multer({ storage: storage });
 
 module.exports = uploadCloud;

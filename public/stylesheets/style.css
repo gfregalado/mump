@@ -127,7 +127,8 @@ a:hover {
   align-items: center; }
 
 .about h3 {
-  height: 100px; }
+  height: 100px;
+  margin: 5vh; }
 
 .block-about {
   display: flex;

@@ -4,7 +4,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const moment = require("moment");
-const uploadCloud = require("../config/cloudinary.js");
+// const uploadCloud = require("../config/cloudinary.js");
 
 // SIGNUP ROUTES
 
@@ -12,12 +12,15 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", (req, res) => {
+router.post("/signup",  
+// uploadCloud.single("avatarino"),
+(req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
-  // const avatar = req.body.file;
+  // const avatarName = req.body.avatarName;
+  // const avatarPath = req.body.url;
 
   if (email === "" || password === "") {
     res.render("auth/signup", {
@@ -44,7 +47,9 @@ router.post("/signup", (req, res) => {
         password: hashPass,
         firstName,
         lastName,
-        // avatar
+        // avatarName,
+        // avatarPath
+
       })
         .then(user => {
           req.session.currentUser = user;

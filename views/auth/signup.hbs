@@ -13,7 +13,7 @@
 <div class="formContainer">
 
 
-  <form id="form" action="/signup" method="POST" class="form" > <!--enctype="multipart/form-data" -->
+  <form id="form" action="/signup" method="POST" class="form" enctype="multipart/form-data"> <!--enctype="multipart/form-data" -->
 
     <h4>Signup</h4>
     <br>
@@ -30,13 +30,13 @@
     <label for="password">Password</label><br>
     <input type="password" name="password" placeholder="********">
 
-    {{!-- <label for="avatar">Avatar</label><br>
-    <input type="file" name="file"> --}}
+    <label for="avatarPath">Avatar</label><br>
+    <input type="file" name="avatarino">
 
     {{#if errorMessage}}
     <div class="error-message"> {{errorMessage}}</div> <br>
     {{/if}}
 
-    <button type="submit">Create account</button>
+    <button type="submit" value="SAVE">Create account</button>
   </form>
 </div>

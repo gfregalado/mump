@@ -9,7 +9,8 @@ const userSchema = new Schema(
     lastName: { type: String, required: true },
     super: { type: Boolean, default: false },
     role: { type: String },
-    avatar: { type: String, default: "images/avatar2.png" },
+    // avatarName: { type: String },
+    // avatarPath: { type: String },
     date: { type: Date, default: Date.now }
   },
   {
