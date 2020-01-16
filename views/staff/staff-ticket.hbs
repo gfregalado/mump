@@ -2,13 +2,15 @@
   <h1>Ticket</h1>
 </section>
 
+{{!-- Ticket Board --}}
 
-<div class="ticket-views">
+<section class="ticket-views">
   <div class="col-sm-6 ">
     <div class="card">
       <div class="card-header">
         <h3>{{ticket.[0].title}}</h3>
       </div>
+
       <div class="card-body ticket-info">
         <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" height="40%" width="40%">
         <br>
@@ -20,9 +22,8 @@
         <form action="/staff/staff-ticket?ticket_id={{ticket.[0]._id}}" method="POST">
           <button class="btn btn-outline" type="edit">Close Ticket</button>
         </form>
-
-
       </div>
+
       <div class="card-footer text-muted">
         <strong>Open Date:</strong> {{ticket.[0].creationDate}}
       </div>
@@ -38,12 +39,13 @@
       </div>
     </div>
   </div>
-  </section>
-</div>
+
+</section>
+
 <section class="ticket-creation-button">
   <div>
-    <button type="button" class="btn btn-primary" onclick="location.href='/staff/dashboard'">
-      Back to dashboard
+    <button type="button" class="btn btn-primary" onclick="goBack()">
+      Go Back
     </button>
   </div>
 </section>
