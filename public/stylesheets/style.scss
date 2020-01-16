@@ -148,6 +148,7 @@ a:hover{
 
 .about h3{
   height: 100px;
+  margin:5vh;
 }
 
 .block-about{
@@ -334,7 +335,7 @@ textarea {
   width: 30px;
   height: 30px;
 }
-.box > h3 {
+.box > h4 {
   padding: 25px;
 }
 
@@ -360,7 +361,8 @@ textarea {
 }
 
 .table-item{
-  border-left: Solid 2px #1d4d4f;
+  // border-left: Solid 2px #1d4d4f;
+  // padding: 10px;
   
 }
 .logout-button {

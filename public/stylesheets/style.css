@@ -127,7 +127,8 @@ a:hover {
   align-items: center; }
 
 .about h3 {
-  height: 100px; }
+  height: 100px;
+  margin: 5vh; }
 
 .block-about {
   display: flex;
@@ -289,7 +290,7 @@ textarea {
   width: 30px;
   height: 30px; }
 
-.box > h3 {
+.box > h4 {
   padding: 25px; }
 
 .table {
@@ -310,9 +311,6 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; }
-
-.table-item {
-  border-left: Solid 2px #1d4d4f; }
 
 .logout-button {
   display: flex;
