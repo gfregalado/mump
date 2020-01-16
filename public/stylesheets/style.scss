@@ -1,7 +1,7 @@
 body {
   padding: 0px;
   padding-left: 0px;
-  font: 14px "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Muli", sans-serif;
   background-color: #f6f6f8;
 }
 .container-fluid {
@@ -11,8 +11,8 @@ body {
 a {
   color: #1d4d4f;
 }
-a:hover{
-  color: #1d4d4f
+a:hover {
+  color: #1d4d4f;
 }
 
 #form {
@@ -71,23 +71,22 @@ a:hover{
   width: 100%;
 }
 
-.navbar{
+.navbar {
   background-color: #f6f6f8;
-  height: 8vh;
 }
 
-.navbar h4{
-  color: #1d4d4f
+.navbar h4 {
+  color: #1d4d4f;
 }
 
-.btn-outline{
+.btn-outline {
   border: solid 2px #1d4d4f;
   width: 150px;
   border-radius: 30px;
   color: #1d4d4f;
 }
 
-.btn-outline:hover{
+.btn-outline:hover {
   border: solid 2px #1d4d4f;
   width: 150px;
   border-radius: 30px;
@@ -96,35 +95,41 @@ a:hover{
 }
 
 .banner {
-  width: 100%;
-  height: 92vh;
+  width: 100vw;
+  height: 95vh;
   display: flex;
-  padding-left: 100px;
-  padding-right: 100px;
+  flex-direction: row-reverse;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  align-items: center;
+}
+.banner > img {
+  width: 75%;
+  height: 75%;
 }
 .headline {
   font-weight: 600;
-  width: 50%;
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.phone-mockup{
+.phone-mockup {
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.headline h2{
+.headline h2 {
   font-weight: 600;
   font-size: 2rem;
   color: #1d4d4f;
-  line-height:40px;
-  letter-spacing: 2px;
+  line-height: 50px;
+  letter-spacing: 5px;
+  align-items: center;
 }
-
 
 .banner-image {
   background-color: #f6f6f8;
@@ -135,23 +140,26 @@ a:hover{
   justify-content: space-between;
 }
 
+.index-button-signup {
+margin-left:17.5%;
+  padding-top:15%;
+}
 
-.about{
+.about {
   height: 100vh;
   width: 100%;
   background-color: F7F8F9;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
-.about h3{
+.about h3 {
   height: 100px;
-  margin:5vh;
+  margin: 5vh;
 }
 
-.block-about{
+.block-about {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,12 +211,12 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items:center;
+  align-items: center;
   width: 17%;
   height: 100vh;
 }
 
-.white-frame{
+.white-frame {
   background-color: white;
   border-radius: 20px;
   height: 97vh;
@@ -360,16 +368,14 @@ textarea {
   justify-content: flex-start;
 }
 
-.table-item{
+.table-item {
   // border-left: Solid 2px #1d4d4f;
   // padding: 10px;
-  
 }
 .logout-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .logout-button button {
@@ -397,7 +403,6 @@ textarea {
   box-shadow: 0px 13px 28px -13px rgba(0, 0, 0, 0.75);
 }
 
-
 .btn-outline-secondary {
   border: solid 1.5px #1d4d4f;
 }
@@ -413,7 +418,7 @@ textarea {
 // }
 
 .ticket-recents {
-  margin-top:10px;
+  margin-top: 10px;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -425,22 +430,22 @@ textarea {
 
 .stats-numbers {
   justify-items: center;
-  font-size:2%
+  font-size: 2%;
 }
 
-.ticket-views{
+.ticket-views {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
 }
 
-.ticket-info{
+.ticket-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.card-header{
+.card-header {
   background-color: #1d4d4f;
   color: white;
   display: flex;

@@ -18,31 +18,30 @@
   {{/if}}
 </nav>
 
-
 <div class="banner">
+  <img src="/images/undraw_our_solution_htvp.svg" alt="People looking into a physical board">
   <div class="banner-image">
     <div class="headline">
-      <h2>START MUMBLING LESS AND DOING MORE</h2> <br>
-      <p>Mump is your solution to all your workspace management issues!</p>
+      <h2>START MUMBLING LESS AND DOING MORE!</h2> <br>
+      <h5>Mump is your solution to all your workspace management issues!</h5>
       {{#if userAuthenticated}}
       <button type="button" class="btn btn-outline" onclick="location.href='/staff/dashboard'">
         Take me to dashboard!
       </button>
       {{else}}
-      <h2> <button type="button" class="btn btn-outline" onclick="location.href='/signup'">
+      <div class="index-button-signup">
+        <button type="button" class="btn btn-outline" onclick="location.href='/signup'">
           Try me now!
-        </button></h2>
+        </button>
+      </div>
       {{/if}}
-    </div>
-
-    <div class="phone-mockup">
-      <img src="/images/phone2.png" alt="phone-mockup" width="130%">
     </div>
 
   </div>
 
 </div>
 
+{{!-- 
 <div class="about">
 
   <h3>What we do</h3>
@@ -56,7 +55,7 @@
     </div>
   </div>
 
-</div>
+</div> --}}
 
 
 
