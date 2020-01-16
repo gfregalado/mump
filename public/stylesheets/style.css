@@ -211,7 +211,7 @@ textarea {
 
 .user-avatar {
   width: auto;
-  height: 5em;
+  height: 7em;
   align-content: center; }
 
 .nav-buttons {
@@ -387,5 +387,28 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.message {
+  border: solid 1px forestgreen;
+  display: flex;
+  padding: 4%;
+  margin: 2%; }
+
+.message img {
+  width: auto;
+  height: 7em;
+  border-radius: 120px; }
+
+.message-body {
+  display: flex;
+  flex-direction: column; }
+
+.message-send {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.message-send button {
+  margin-left: 10px; }
 
 /*# sourceMappingURL=style.css.map */

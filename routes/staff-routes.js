@@ -95,7 +95,7 @@ router.get("/staff/users", (req, res, next) => {
 //Staff Close Ticket
 router.post("/staff/staff-ticket", (req, res, next) => {
   const ticketID = req.query.ticket_id;
-  let currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+  const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   Ticket.update(
     { _id: ticketID },
     { $set: { status: "Closed", closeDate: currentTime } }
@@ -127,7 +127,6 @@ router.get("/staff/staff-ticket", (req, res, next) => {
   const ticketID = req.query.ticket_id;
   Ticket.find({ _id: ticketID })
     .then(ticket => {
-      console.log(ticket);
       res.render("staff/staff-ticket", {
         userAuthenticated: req.session.currentUser,
         ticket: ticket
@@ -137,5 +136,36 @@ router.get("/staff/staff-ticket", (req, res, next) => {
       console.log(err);
     });
 });
+
+router.post("/staff/ticket-message", (req, res, next) => {
+  const ticketID = req.query.ticket_id;
+  const user = `${req.session.currentUser.firstName} ${req.session.currentUser.lastName}`;
+  const message = req.body.message;
+  const messageTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+  const avatar = req.session.currentUser.avatar
+
+  console.log("Message: " + req.body.message)
+  console.log("ID: " + ticketID)
+  console.log("Message Time: " + messageTime)
+  console.log("Avatar Path: " + avatar)
+
+  Ticket.update(
+    { _id: ticketID },
+    { $push: { comments: { user, message, messageTime, avatar } } }
+  )
+    .then(
+      Ticket.find({ _id: ticketID })
+        .then(ticket => {
+          res.render("staff/staff-ticket", {
+            userAuthenticated: req.session.currentUser,
+            ticket: ticket
+          });
+        }))
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+
 
 module.exports = router;

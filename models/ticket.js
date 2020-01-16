@@ -16,7 +16,9 @@ const ticketSchema = new Schema(
     comments: [
       {
         user: String,
-        comment: String,
+        message: String,
+        messageTime: String,
+        avatar: String
       }
     ],
   },

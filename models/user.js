@@ -9,8 +9,7 @@ const userSchema = new Schema(
     lastName: { type: String, required: true },
     super: { type: Boolean, default: false },
     role: { type: String },
-    // avatarName: { type: String },
-    // avatarPath: { type: String },
+    avatar: { type: String, default: "images/default-avatar.png" }, // don't forget to change for the correct avatar name @PIM
     date: { type: Date, default: Date.now }
   },
   {
