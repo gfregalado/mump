@@ -5,7 +5,7 @@
   <section class="left-navigator">
     <div class="white-frame">
       <div class="user">
-        <img src="/images/default-avatar.png" alt="" class="user-avatar" width="100px" height="100px">
+        <img src="{{userAuthenticated.avatar}}" alt="" class="user-avatar" width="100px" height="100px">
         <h5> {{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }}</h5>
       </div>
 
@@ -51,10 +51,13 @@
             <tr>
               <th scope="row">{{this.firstName}} {{this.lastName}}</th>
               <td>{{this.email}}</td>
-              <td><button type="button" onclick="myFunction()" class="btn btn-primary btn-sm" data-toggle="modal"
-                  data-target="#">
-                  Make Admin
-                </button></td>
+              <td>
+
+                <form action="/staff/users?user_id={{this._id}}" method="POST">
+                  <button class="btn btn-primary btn-sm" type="edit">Make Admin</button>
+                </form>
+
+              </td>
             </tr>
             {{/each}}
           </tbody>

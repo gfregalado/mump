@@ -4,7 +4,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const moment = require("moment");
-// const uploadCloud = require("../config/cloudinary.js");
+const uploadCloud = require("../config/cloudinary.js");
 
 // SIGNUP ROUTES
 
@@ -12,58 +12,58 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
-router.post("/signup",  
-// uploadCloud.single("avatarino"),
-(req, res, next) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  // const avatarName = req.body.avatarName;
-  // const avatarPath = req.body.url;
+router.post("/signup",
+  uploadCloud.single("avatarino"),
+  (req, res, next) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const avatarName = req.file.avatarName;
+    const avatarPath = req.file.url;
 
-  if (email === "" || password === "") {
-    res.render("auth/signup", {
-      errorMessage: "Indicate a valid email and a password to sign up"
-    });
-    return;
-  }
+    if (email === "" || password === "") {
+      res.render("auth/signup", {
+        errorMessage: "Indicate a valid email and a password to sign up"
+      });
+      return;
+    }
 
-  User.findOne({
-    email: email
-  })
-    .then(user => {
-      if (user !== null) {
-        res.render("auth/signup", {
-          errorMessage: "Oops, this email already exists!"
-        });
-        return;
-      }
-      const salt = bcrypt.genSaltSync(bcryptSalt);
-      const hashPass = bcrypt.hashSync(password, salt);
-
-      User.create({
-        email,
-        password: hashPass,
-        firstName,
-        lastName,
-        // avatarName,
-        // avatarPath
-
-      })
-        .then(user => {
-          req.session.currentUser = user;
-          console.log("logged user", user);
-          res.redirect("/user/user-dashboard");
-        })
-        .catch(error => {
-          res.render("user/user-dashboard");
-        });
+    User.findOne({
+      email: email
     })
-    .catch(error => {
-      next(error);
-    });
-});
+      .then(user => {
+        if (user !== null) {
+          res.render("auth/signup", {
+            errorMessage: "Oops, this email already exists!"
+          });
+          return;
+        }
+        const salt = bcrypt.genSaltSync(bcryptSalt);
+        const hashPass = bcrypt.hashSync(password, salt);
+
+        User.create({
+          email,
+          password: hashPass,
+          firstName,
+          lastName,
+          avatarName,
+          avatarPath
+
+        })
+          .then(user => {
+            req.session.currentUser = user;
+            console.log("logged user", user);
+            res.redirect("/user/user-dashboard");
+          })
+          .catch(error => {
+            res.render("user/user-dashboard");
+          });
+      })
+      .catch(error => {
+        next(error);
+      });
+  });
 
 //LOGIN ROUTES
 
