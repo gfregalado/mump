@@ -5,9 +5,7 @@ const User = require("../models/user");
 const moment = require("moment");
 const uploadCloud = require("../config/cloudinary.js");
 
-
 // ==================================================================================================
-
 
 //Staff-Dashboard View
 
@@ -31,7 +29,6 @@ router.get("/staff/dashboard", (req, res, next) => {
 
 // ==================================================================================================
 
-
 //Staff-Ticket View
 
 router.get("/staff/staff-tickets", (req, res, next) => {
@@ -48,9 +45,7 @@ router.get("/staff/staff-tickets", (req, res, next) => {
     });
 });
 
-
 // ==================================================================================================
-
 
 // Staff ticket Creation Modal
 
@@ -92,7 +87,6 @@ router.post(
 
 // ==================================================================================================
 
-
 // Staff Users View
 
 router.get("/staff/users", (req, res, next) => {
@@ -108,10 +102,8 @@ router.get("/staff/users", (req, res, next) => {
 
 // ==================================================================================================
 
-
 //Staff Close Ticket
 router.post("/staff/staff-ticket", (req, res, next) => {
-
   const ticketID = req.query.ticket_id;
   const currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
 
@@ -122,12 +114,11 @@ router.post("/staff/staff-ticket", (req, res, next) => {
     .then(() => {
       res.redirect("/staff/closed-tickets");
     })
-    
+
     .catch(error => {
       console.log(error);
     });
 });
-
 
 // ==================================================================================================
 
@@ -146,7 +137,6 @@ router.get("/staff/closed-tickets", (req, res, next) => {
 
 // ==================================================================================================
 
-
 // Staff view of each individual ticket
 
 router.get("/staff/staff-ticket", (req, res, next) => {
@@ -163,7 +153,6 @@ router.get("/staff/staff-ticket", (req, res, next) => {
     });
 });
 
-
 // ==================================================================================================
 
 // post message on ticket board
@@ -173,25 +162,24 @@ router.post("/staff/ticket-message", (req, res, next) => {
   const user = `${req.session.currentUser.firstName} ${req.session.currentUser.lastName}`;
   const message = req.body.message;
   const messageTime = moment().format("MMMM Do YYYY, h:mm:ss a");
-  const avatar = req.session.currentUser.avatar
+  const avatar = req.session.currentUser.avatar;
 
   Ticket.update(
     { _id: ticketID },
     { $push: { comments: { user, message, messageTime, avatar } } }
   )
     .then(
-      Ticket.find({ _id: ticketID })
-        .then(ticket => {
-          res.render("staff/staff-ticket", {
-            userAuthenticated: req.session.currentUser,
-            ticket: ticket
-          });
-        }))
+      Ticket.find({ _id: ticketID }).then(ticket => {
+        res.render("staff/staff-ticket", {
+          userAuthenticated: req.session.currentUser,
+          ticket: ticket
+        });
+      })
+    )
     .catch(error => {
       console.log(error);
     });
 });
-
 
 // ==================================================================================================
 
@@ -199,7 +187,7 @@ router.post("/staff/ticket-message", (req, res, next) => {
 
 router.post("/staff/users", (req, res, next) => {
   const userID = req.query.user_id;
-  console.log("I AM HERE" + userID)
+  console.log("I AM HERE" + userID);
   User.update({ _id: userID }, { super: true })
     .then(() => {
       res.redirect("/staff/users");
@@ -208,6 +196,5 @@ router.post("/staff/users", (req, res, next) => {
       console.log(error);
     });
 });
-
 
 module.exports = router;

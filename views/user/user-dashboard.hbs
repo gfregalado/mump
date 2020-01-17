@@ -4,7 +4,7 @@
   <a class="navbar-brand" href="/">
     <h4>Mump</h4>
   </a>
-  Welcome to your Dashboard {{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }}!
+  Welcome {{ userAuthenticated.firstName }} {{ userAuthenticated.lastName }}!
   {{#if userAuthenticated }}
   <button type="button" class="btn btn-outline" onclick="location.href='/logout'">
     Logout
@@ -44,7 +44,7 @@
               <td class="hidden-sm-down">{{this.creationDate}}</td>
               <td>{{this.status}}</td>
               <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ticketDetails"
-                  onclick="location.href='/user/ticket?ticket_id={{this._id}}'">
+                  onclick="location.href='/user/user-ticket?ticket_id={{this._id}}'">
                   Check ticket
                 </button></td>
             </tr>
@@ -53,7 +53,7 @@
         </table>
       </div>
       <div class="ticket-creation-button">
-        <button  class="btn btn-primary" data-toggle="modal" data-target="#createTicket">Create
+        <button class="btn btn-primary" data-toggle="modal" data-target="#createTicket">Create
           Ticket</button>
       </div>
     </div>
@@ -91,7 +91,7 @@
         </form>
       </div>
 
-     
+
     </div>
   </div>
 </div>

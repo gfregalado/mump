@@ -19,16 +19,19 @@
 </nav>
 
 <div class="banner">
-  <img src="/images/undraw_our_solution_htvp.svg" alt="People looking into a physical board">
+  <img src="/images/undraw_our_solution_htvp.svg" alt="Team looking into a physical board">
   <div class="banner-image">
     <div class="headline">
       <h2>START MUMBLING LESS AND DOING MORE!</h2> <br>
       <h5>Mump is your solution to all your workspace management issues!</h5>
+
       {{#if userAuthenticated }}
+
       <div class="index-button-signup">
         <button type="button" class="btn btn-outline" onclick="location.href='/user/user-dashboard'">
           Take me to the dashboard!
         </button>
+
       </div>
       {{else}}
       <div class="index-button-signup">
@@ -38,74 +41,5 @@
       </div>
       {{/if}}
     </div>
-
   </div>
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Modal -->
-{{!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="/login" method="POST" id="form">
-
-          <label for="username">Username</label>
-          <input type="text" name="username">
-          <br>
-
-          <label for="password">Password</label>
-          <input type="password" name="password"> --}}
-
-
-{{!-- {{#if errorMessage }}
-          <div class="error-message">{{ errorMessage }}</div>
-          {{!-- {{!-- {{/if}} --}}
-
-{{!-- <button class="btn btn-primary" id="loginbutton">Login</button>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <p class="account-message">
-          Don't have an account? <a href="/signup">Sign up</a>
-        </p>
-
-      </div>
-    </div>
-  </div>
-</div> --}}

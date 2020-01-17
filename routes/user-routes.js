@@ -11,16 +11,20 @@ router.use((req, res, next) => {
     // <== if there's user in the session (user is logged in)
     next(); // ==> go to the next route ---
   } else {
-    //    |
-    res.redirect("/login"); //    |
-  } //    |
+    //                                    |
+    //                                    |
+    //                                    |
+    res.redirect("/login"); //            |
+  } //                                    |
 }); // ------------------------------------
 
 // GET - User ticket area view
 
-router.get("/user/tickets", (req, res, next) => {
-  res.render("user/user-ticket-area");
-});
+// router.get("/user/user-ticket-area", (req, res, next) => {
+//   res.render("user/user-ticket-area");
+// });
+
+// ==================================================================================================
 
 router.get("/user/user-dashboard", (req, res, next) => {
   const email = req.session.currentUser.email;
@@ -34,12 +38,17 @@ router.get("/user/user-dashboard", (req, res, next) => {
     });
 });
 
-router.get("/user/ticket", (req, res, next) => {
+// ==================================================================================================
+
+router.get("/user/user-ticket", (req, res, next) => {
   const ticketID = req.query.ticket_id;
+
+  console.log("THIS IS THE TICKET ID" + ticketID);
+
   Ticket.find({ _id: ticketID })
     .then(ticket => {
       console.log(ticket);
-      res.render("user/ticket", {
+      res.render("user/user-ticket-area", {
         userAuthenticated: req.session.currentUser,
         ticket: ticket
       });
@@ -48,6 +57,8 @@ router.get("/user/ticket", (req, res, next) => {
       console.log(err);
     });
 });
+
+// ==================================================================================================
 
 //Ticket Creation
 
@@ -62,8 +73,6 @@ router.post(
     const imageName = req.file.originalName;
     const imagePath = req.file.url;
     const creationDate = moment().format("MMM Do YYYY");
-
-    console.log("I AM HERE" + moment());
 
     Ticket.create({
       title,
@@ -89,5 +98,33 @@ router.post(
       });
   }
 );
+
+// ================================================================================================
+
+// post message on ticket board
+
+router.post("/user/ticket-message", (req, res, next) => {
+  const ticketID = req.query.ticket_id;
+  const user = `${req.session.currentUser.firstName} ${req.session.currentUser.lastName}`;
+  const message = req.body.message;
+  const messageTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+  const avatar = req.session.currentUser.avatarPath;
+   console.log( "I AM THE AVATAR" + avatar),
+  Ticket.update(
+    { _id: ticketID },
+    { $push: { comments: { user, message, messageTime, avatar } } }
+  )
+    .then(
+      Ticket.find({ _id: ticketID }).then(ticket => {
+        res.render("user/user-ticket-area", {
+          userAuthenticated: req.session.currentUser,
+          ticket: ticket
+        });
+      })
+    )
+    .catch(error => {
+      console.log(error);
+    });
+});
 
 module.exports = router;

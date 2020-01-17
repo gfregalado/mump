@@ -1,9 +1,80 @@
-<h1>Ticket</h1>
+<section>
+  <h1>Ticket</h1>
+</section>
 
-<h4><strong>Title: </strong> {{ticket.[0].title}}</h4>
+{{!-- Ticket Board --}}
 
-<p><strong>Description: </strong>{{ticket.[0].description}}</p>
+<section class="ticket-views">
+  <div class="col-sm-6 ">
+    <div class="card">
+      <div class="card-header">
+        <h3>{{ticket.[0].title}}</h3>
+      </div>
 
-<p><strong>Open date: </strong>{{ticket.[0].date}}</p>
+      <div class="card-body ticket-info">
+        <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" height="40%" width="40%">
+        <br>
 
-<p><strong>Image: </strong></p> <img src="{{ticket.[0].imagePath}}" alt="Ticket Image" width="50%">
+        <p class="card-text">
+          {{ticket.[0].description}}
+        </p>
+
+      </div>
+
+      <div class="card-footer text-muted">
+        <strong>Open Date:</strong> {{ticket.[0].creationDate}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- Message Board --}}
+
+  <div class="container col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <h3>Message Board</h3>
+      </div>
+      <div class="message-body">
+        {{#each ticket.[0].comments}}
+        <div class="message">
+          <div class="message-image">
+            <img src="{{this.avatar}}" alt="User Avatar">
+          </div>
+          <div class="message-content">
+            <strong>
+              <p>{{this.user}}</p>
+            </strong>
+            <p>{{this.message}}</p>
+            <p class="text-muted">{{this.messageTime}}</p>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      <div class="card-footer">
+        <form class="message-send" action="/user/ticket-message?ticket_id={{ticket.[0]._id}}" method="POST">
+          <input type="text" class="form-control" name="message" rows="2" placeholder="Write us a message"></textarea>
+          <button class="btn btn-sm btn-outline" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="ticket-creation-button">
+  <div>
+    <button type="button" class="btn btn-primary" onclick="goBack()">
+      Go Back
+    </button>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
