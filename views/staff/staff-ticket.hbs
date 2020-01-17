@@ -41,7 +41,7 @@
         {{#each ticket.[0].comments}}
         <div class="message">
           <div class="message-image">
-            <img src="/{{this.avatarPath}}" alt="Staff user avatar">
+            <img src="{{this.avatarPath}}" alt="Staff user avatar">
           </div>
           <div class="message-content">
             <strong>
@@ -66,7 +66,7 @@
 
 <section class="ticket-creation-button">
   <div>
-    <button type="button" class="btn btn-primary" onclick="goBack()">
+    <button type="button" class="btn btn-primary" onclick="/staff/staff">
       Go Back
     </button>
   </div>

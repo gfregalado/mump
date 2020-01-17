@@ -109,7 +109,7 @@ router.post("/user/ticket-message", (req, res, next) => {
   const message = req.body.message;
   const messageTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   const avatar = req.session.currentUser.avatarPath;
-   console.log( "I AM THE AVATAR" + avatar),
+  //  console.log( "I AM THE AVATAR" + avatar),
   Ticket.update(
     { _id: ticketID },
     { $push: { comments: { user, message, messageTime, avatar } } }
