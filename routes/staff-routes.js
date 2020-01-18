@@ -4,6 +4,7 @@ const Ticket = require("../models/ticket");
 const User = require("../models/user");
 const moment = require("moment");
 const uploadCloud = require("../config/cloudinary.js");
+const transporter = require("../config/nodemailer.js")
 
 // ==================================================================================================
 
@@ -113,7 +114,25 @@ router.post("/staff/staff-ticket", (req, res, next) => {
   )
     .then(() => {
       res.redirect("/staff/closed-tickets");
-    })
+    }).then(Ticket.find(
+      { _id: ticketID }).then(ticket => {
+        transporter.sendMail({
+          from: '"Mump Crew " <mumpcsteam@gmail.com>',
+          to: `gf.regalado@gmail.com`,
+          subject: 'Your ticket was just solved!',
+          text: 'Ticket',
+          html: `<p>Hey there ${ticket.firstName}</p>
+          <br>
+          <p>We have just solved your ticket regarding ${ticket.title} that you opened on ${ticket.creationDate}. 
+          We hope you are happy with the solution we have found for you.</p>
+          <br>
+          <p>Please reach out to the Mump team if you need anything else</p>
+          <br>
+          <p>Best regards,</p>
+          <p>${req.session.currentUser.firstName} ${req.session.currentUser.lastName}</p>`
+        })
+      }
+      ))
 
     .catch(error => {
       console.log(error);
