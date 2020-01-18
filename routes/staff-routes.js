@@ -162,7 +162,7 @@ router.post("/staff/ticket-message", (req, res, next) => {
   const user = `${req.session.currentUser.firstName} ${req.session.currentUser.lastName}`;
   const message = req.body.message;
   const messageTime = moment().format("MMMM Do YYYY, h:mm:ss a");
-  const avatar = req.session.currentUser.avatar;
+  const avatar = req.session.currentUser.avatarPath;
 
   Ticket.update(
     { _id: ticketID },
@@ -170,10 +170,11 @@ router.post("/staff/ticket-message", (req, res, next) => {
   )
     .then(
       Ticket.find({ _id: ticketID }).then(ticket => {
-        res.render("staff/staff-ticket", {
-          userAuthenticated: req.session.currentUser,
-          ticket: ticket
-        });
+        res.redirect(`/staff/staff-ticket?ticket_id=${ticketID}`)
+        //   res.render("staff/staff-ticket", {
+        //     userAuthenticated: req.session.currentUser,
+        //     ticket: ticket
+        //   });
       })
     )
     .catch(error => {
