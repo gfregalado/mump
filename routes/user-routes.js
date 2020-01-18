@@ -103,24 +103,25 @@ router.post("/user/ticket-message", (req, res, next) => {
   const ticketID = req.query.ticket_id;
   const user = `${req.session.currentUser.firstName} ${req.session.currentUser.lastName}`;
   const message = req.body.message;
+  console.log("message", message);
   const messageTime = moment().format("MMMM Do YYYY, h:mm:ss a");
   const avatar = req.session.currentUser.avatarPath;
-  console.log("I AM THE AVATAR" + avatar),
-    Ticket.update(
-      { _id: ticketID },
-      { $push: { comments: { user, message, messageTime, avatar } } }
+  Ticket.update(
+    { _id: ticketID },
+    { $push: { comments: { user, message, messageTime, avatar } }, }
+  )
+    .then(
+      Ticket.find({ _id: ticketID }).then(ticket => {
+        res.redirect(`/user/user-ticket?ticket_id=${ticketID}`);
+        // res.render("user/user-ticket-area", {
+        //   userAuthenticated: req.session.currentUser,
+        //   ticket: ticket
+        // });
+      })
     )
-      .then(
-        Ticket.find({ _id: ticketID }).then(ticket => {
-          res.render("user/user-ticket-area", {
-            userAuthenticated: req.session.currentUser,
-            ticket: ticket
-          });
-        })
-      )
-      .catch(error => {
-        console.log(error);
-      });
+    .catch(error => {
+      console.log(error);
+    });
 });
 
 module.exports = router;
