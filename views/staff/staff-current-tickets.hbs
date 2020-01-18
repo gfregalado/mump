@@ -51,7 +51,7 @@
           <tbody>
             {{#each tickets}}
             <tr>
-              <th scope="row">{{this.title}}</th>
+              <th scope="row"><a href="/staff/staff-ticket?ticket_id={{this._id}}" > {{this.title}}</th>
               <td>{{this.email}}</td>
               <td>{{this.creationDate}}</td>
               <td>{{this.status}}</td>

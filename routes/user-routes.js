@@ -18,8 +18,6 @@ router.use((req, res, next) => {
   } //                                    |
 }); // ------------------------------------
 
-// GET - User ticket area view
-
 // router.get("/user/user-ticket-area", (req, res, next) => {
 //   res.render("user/user-ticket-area");
 // });

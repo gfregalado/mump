@@ -390,7 +390,10 @@ textarea {
 
 .message {
   border: solid 1px #1d4d4f;
+<<<<<<< HEAD
   border-radius: 10px;
+=======
+>>>>>>> 2df38f01380059e3c0fb50da481a23fc44301405
   display: flex;
   padding: 4%;
   margin: 2%; }
