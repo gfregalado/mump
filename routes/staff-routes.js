@@ -114,11 +114,11 @@ router.post("/staff/staff-ticket", (req, res, next) => {
   )
     .then(() => {
       res.redirect("/staff/closed-tickets");
-    }).then(Ticket.find(
+    }).then(Ticket.findById(
       { _id: ticketID }).then(ticket => {
         transporter.sendMail({
           from: '"Mump Crew " <mumpcsteam@gmail.com>',
-          to: `gf.regalado@gmail.com`,
+          to: `${ticket.email}`,
           subject: 'Your ticket was just solved!',
           text: 'Ticket',
           html: `<p>Hey there ${ticket.firstName}</p>
