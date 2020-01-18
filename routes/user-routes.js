@@ -18,8 +18,6 @@ router.use((req, res, next) => {
   } //                                    |
 }); // ------------------------------------
 
-// GET - User ticket area view
-
 // router.get("/user/user-ticket-area", (req, res, next) => {
 //   res.render("user/user-ticket-area");
 // });
@@ -107,7 +105,7 @@ router.post("/user/ticket-message", (req, res, next) => {
   const avatar = req.session.currentUser.avatarPath;
 
   // console.log("I AM THE AVATAR" + avatar),
-  
+
     Ticket.update(
       { _id: ticketID },
       { $push: { comments: { user, message, messageTime, avatar } } }
