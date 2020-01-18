@@ -389,7 +389,7 @@ textarea {
   align-items: center; }
 
 .message {
-  border: solid 1px forestgreen;
+  border: solid 1px #1d4d4f;
   display: flex;
   padding: 4%;
   margin: 2%; }
