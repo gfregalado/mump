@@ -40,7 +40,7 @@
           <tbody>
             {{#each tickets}}
             <tr>
-              <th scope="row">{{this.title}}</th>
+              <th scope="row"> <a href="/user/user-ticket?ticket_id={{this._id}}" >{{this.title}}</th>
               <td class="hidden-sm-down">{{this.creationDate}}</td>
               <td>{{this.status}}</td>
               <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ticketDetails"
